@@ -1,0 +1,19 @@
+<!-- Conteneur où React s’injectera -->
+<div id="product-stepper">
+  <!-- On peut afficher un "chargement" par défaut, qui sera remplacé par React -->
+  <div class="stepper-loading">Chargement en cours...</div>
+</div>
+
+<!-- Inclure le fichier JS généré par Vite/Webpack -->
+<script src="{{ 'stepper.js' | asset_url }}" defer></script>
+
+<!-- Optionnel : inclure le CSS généré s’il existe -->
+<link rel="stylesheet" href="{{ 'stepper.css' | asset_url }}" />
+
+{% schema %}
+{
+  "name": "Stepper Form",
+  "target": "section",
+  "settings": []
+}
+{% endschema %}
