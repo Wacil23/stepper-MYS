@@ -6,7 +6,7 @@ import { StylableProps } from "../../types/base/StylableProps";
 type InputProps = FormFieldInputProps<
     BaseComponentModel & {
         /** An Input can have a type */
-        type?: 'text' | 'email' | 'password' | 'tel' | 'file';
+        type?: 'text' | 'email' | 'password' | 'tel' | 'file' | 'number';
         /** An input can have a hint */
         hint?: string | React.ReactNode;
         /** An input can have autocomplete enabled to allow the browser to predict the value  */

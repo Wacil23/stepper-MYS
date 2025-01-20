@@ -6,6 +6,7 @@ type FormProps<T = unknown> = Pick<
     React.FormHTMLAttributes<HTMLFormElement>,
     'aria-label' | 'aria-labelledby' | 'title'
 > & {
+  className?: string;
     /** Formik context */
     formikBag: FormikContextType<T>;
 

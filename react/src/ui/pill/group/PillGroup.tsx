@@ -54,10 +54,10 @@ const PillGroup: React.FC<PillGroupProps> = (props) => {
 
   return (
     <div className="relative" {...radioGroupProps}>
-      <span className="inline-block text-base font-medium cursor-pointer mb-2" id={radioGroupProps["aria-labelledby"]}>
+      <span className="inline-block text-base font-semibold cursor-pointer mb-2" id={radioGroupProps["aria-labelledby"]}>
         {props.label}
       </span>
-      <div ref={groupRef} className="relative flex w-fit rounded-full bg-white z-[1] ">
+      <div ref={groupRef} className="relative flex w-fit rounded-full bg-dark-light z-[1] ">
         {left && width && <div className="h-full absolute bottom-0 bg-primary z-[-1] rounded-full transition-[left] duration-300"  style={{ left, width }}>&nbsp;</div>}
         {renderOptions()}
       </div>

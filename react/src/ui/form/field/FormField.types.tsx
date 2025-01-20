@@ -65,6 +65,8 @@ type FormFieldProps<T = never, M = never> = {
 
     /** Form field input reference value (only useful for checkbox/radio buttons) */
     refValue?: any;
+
+    className?: string;
 } & Omit<BaseFormFieldInputProps<M>, 'checked' | keyof FieldMetaProps<never> | keyof ValidationInputProps>;
 
 export type { ValidationInputProps, BaseFormFieldInputProps, FormFieldInputProps, FormFieldInputType, FormFieldProps };

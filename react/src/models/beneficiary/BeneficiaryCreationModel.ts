@@ -27,10 +27,16 @@ export type BeneficiaryCreationModel = {
    * Number of wheelchair for the beneficiary
    */
   wheelchairCount: number;
+
+  wheelchairSelection: number | 'custom';
   /**
    * Type of frame for the proof
    */
   frameType: 'mail' | 'qr';
+  /**
+   * Is the beneficiary valid
+   */
+  isValid: boolean;
 }
 
 

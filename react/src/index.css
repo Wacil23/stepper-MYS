@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap');
+
+
 
 #product-stepper {
-
+  font-family: "Inter";
+  color: #00262B;
   @tailwind base;
   @tailwind components;
   @tailwind utilities;
@@ -16,7 +20,7 @@
       white-space: nowrap;
       width: 1px;
     }
-    .input-radio {
+    input {
       + .control {
         display: block;
         width: 1rem;
@@ -39,9 +43,22 @@
           height: 0.5rem;
         }
       }
+      &:checked {
+        + .control {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          &::before {
+            transform: scale(1);
+          }
+        }
+        &:disabled {
+          + .control {
+            opacity: 0.4;
+          }
+        }
+      }
     }
   }
-
 }
-
-

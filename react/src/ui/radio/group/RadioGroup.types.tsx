@@ -11,6 +11,10 @@ type RadioGroupItemProps = Pick<
 > & {
   /** Radio group item key */
   key?: string;
+  isCustom?: boolean;
+  promo?: string
+  description?: string;
+  suffix?: string;
 };
 
 type RadioGroupProps = FormFieldInputProps<
@@ -19,6 +23,9 @@ type RadioGroupProps = FormFieldInputProps<
     options: RadioGroupItemProps[];
     hint?: string | HelperTextProps;
     inline?: boolean;
+    onNumberChange?: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => void;
+    numberValues?: number,
+    productPrice?: string,
   }
 >;
 

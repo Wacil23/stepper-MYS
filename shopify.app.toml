@@ -3,7 +3,7 @@
 client_id = "4798c49caa7e89fd0320dcbc6c71f87f"
 name = "stepper"
 handle = "stepper"
-application_url = "https://awesome-encourage-pierre-validation.trycloudflare.com"
+application_url = "https://england-aid-greg-mason.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "read_files,read_metaobject_definitions,read_metaobjects,read_orders,re
 
 [auth]
 redirect_urls = [
-  "https://awesome-encourage-pierre-validation.trycloudflare.com/auth/callback",
-  "https://awesome-encourage-pierre-validation.trycloudflare.com/auth/shopify/callback",
-  "https://awesome-encourage-pierre-validation.trycloudflare.com/api/auth/callback"
+  "https://england-aid-greg-mason.trycloudflare.com/auth/callback",
+  "https://england-aid-greg-mason.trycloudflare.com/auth/shopify/callback",
+  "https://england-aid-greg-mason.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

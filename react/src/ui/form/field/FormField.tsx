@@ -5,7 +5,7 @@ import { InputsHTMLTypes } from './FormField.config';
 import { type ValidationInputProps, type FormFieldProps } from './FormField.types';
 import { useFormSchemaContext } from '..';
 const FormField = <T,>(props: FormFieldProps<T>) => {
-    const { component: InputComponent, inputProps = {} } = props;
+    const { component: InputComponent, inputProps = {}, className } = props;
 
     // Value is special for checkboxes & radio buttons so Formik handles it differently
     // by specifying the HTML input type
@@ -68,7 +68,7 @@ const FormField = <T,>(props: FormFieldProps<T>) => {
 
     const error = meta.touched || validateOnMount ? meta.error : undefined;
     return (
-        <div data-name={field.name} data-error={!!error}>
+        <div className={className} data-name={field.name} data-error={!!error}>
             <InputComponent
                 {...(inputProps as T)}
                 {...validationProps}
