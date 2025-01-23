@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import BeneficiaryForm from "../../components/beneficiary/BeneficiaryForm";
 import FrameForm from "../../components/frame/FrameForm";
 import WheelchairForm from "../../components/wheelchair/WheelchairForm";
@@ -6,6 +6,8 @@ import { useFormContext } from "../../contexts/FormProvider";
 import { BeneficiariesCreationModel } from "../../models/beneficiary/BeneficiaryCreationModel";
 import { createCart } from "../../services/queries/cart/Cart.query";
 import { ICartInput } from "../../models/cart/ICart";
+import { useTranslation } from "react-i18next";
+import { calculWheelchairPrice } from "../../utils/calculWheelchair";
 
 const Stepper = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
@@ -16,6 +18,15 @@ const Stepper = () => {
   const isFirstStep = currentStep === 1;
   const stepperRef = useRef<HTMLDivElement | null>(null);
   const headerHeight = 85;
+  const {setTotalPrice, totalPrice, currentProduct, cadreProduct} = useFormContext()
+  const { t } = useTranslation();
+
+  const aMale = t("beneficiaries.fields.gender.options.aMale");
+  const aFemale = t("beneficiaries.fields.gender.options.aFemale");
+  const female = t(
+    "beneficiaries.fields.gender.options.female",
+  ).toLocaleLowerCase();
+  const sick = t("beneficiaries.fields.status.options.sick");
 
   const handleValidateStep = async (step: number) => {
     const fieldsToValidate = getFieldsForStep(step);
@@ -27,12 +38,12 @@ const Stepper = () => {
         status: true,
         gender: true,
         wheelchairCount: true,
-        frameType: true
+        frameType: true,
       }));
 
       await formik.setTouched({
         ...formik.touched,
-        beneficiaries: touchedBeneficiaries
+        beneficiaries: touchedBeneficiaries,
       });
     }
 
@@ -51,11 +62,15 @@ const Stepper = () => {
 
       // Scroll to first error if exists
       if (errorIndexes.length > 0) {
-        const firstErrorElement = document.getElementById(`beneficiaries[${errorIndexes[0]}].name`);
-        console.log(firstErrorElement)
+        const firstErrorElement = document.getElementById(
+          `beneficiaries[${errorIndexes[0]}].name`,
+        );
         if (firstErrorElement) {
-          firstErrorElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          firstErrorElement.focus({preventScroll: true})
+          firstErrorElement.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+          firstErrorElement.focus({ preventScroll: true });
         }
         return false;
       }
@@ -65,14 +80,13 @@ const Stepper = () => {
     return Object.keys(stepErrors).length === 0;
   };
 
-
-
   const handleNext = async () => {
     const isValid = await handleValidateStep(currentStep);
 
     if (isValid) {
       if (stepperRef.current) {
-        const topPosition = stepperRef.current.getBoundingClientRect().top + window.scrollY;
+        const topPosition =
+          stepperRef.current.getBoundingClientRect().top + window.scrollY;
         window.scrollTo({
           top: topPosition - headerHeight,
           behavior: "smooth",
@@ -105,18 +119,23 @@ const Stepper = () => {
 
       const wheelchairLines = beneficiaries.map((beneficiary) => {
         const genderValue = (gender: string) =>
-          gender === "femme" ? "Une femme" : "Un homme";
+          gender === female ? aFemale : aMale;
         const frameTypeValue = (frameType: string) =>
-          frameType === "mail" ? "Vidéo par mail" : "Cadre QR code";
+          frameType === "mail"
+            ? t("checkout.attributes.frameTypeMail")
+            : t("checkout.attributes.frameTypeQr");
         return {
           merchandiseId: "gid://shopify/ProductVariant/47610688274774",
           quantity: beneficiary.wheelchairCount,
           attributes: [
-            { key: "Genre ", value: genderValue(beneficiary.gender) },
-            { key: "Au nom de ", value: beneficiary.name },
-            { key: "Status ", value: beneficiary.status },
             {
-              key: "Preuve du dépôt ",
+              key: t("checkout.attributes.gender"),
+              value: genderValue(beneficiary.gender),
+            },
+            { key: t("checkout.attributes.name"), value: beneficiary.name },
+            { key: t("checkout.attributes.status"), value: beneficiary.status },
+            {
+              key: t("checkout.attributes.proof"),
               value: frameTypeValue(beneficiary.frameType),
             },
           ],
@@ -129,7 +148,12 @@ const Stepper = () => {
           return {
             merchandiseId: "gid://shopify/ProductVariant/49016071651670",
             quantity: 1,
-            attributes: [{ key: "Preuve au nom de ", value: beneficiary.name }],
+            attributes: [
+              {
+                key: t("checkout.attributes.proofInName"),
+                value: beneficiary.name,
+              },
+            ],
           };
         });
 
@@ -177,12 +201,13 @@ const Stepper = () => {
 
   const initialValue: BeneficiariesCreationModel["beneficiaries"][0] = {
     name: "",
-    gender: "femme",
-    status: "Malade",
+    gender: female,
+    status: sick,
     wheelchairCount: 1,
     wheelchairSelection: 1,
     frameType: "mail",
     isValid: false,
+    price: 0
   };
 
   const handleAddBeneficiary = () => {
@@ -204,7 +229,8 @@ const Stepper = () => {
       }
 
       const errorIndexes =
-        formik.errors.beneficiaries && formik.touched.beneficiaries?.[index] &&
+        formik.errors.beneficiaries &&
+        formik.touched.beneficiaries?.[index] &&
         Array.isArray(formik.errors.beneficiaries)
           ? formik.errors.beneficiaries
               .map((err: any, i: number) => (err ? i : -1))
@@ -215,22 +241,50 @@ const Stepper = () => {
     });
   };
 
+  useEffect(() => {
+    const totalQuantity = formik.values.beneficiaries.reduce((acc, b) => {
+      return acc + b.wheelchairCount;
+    }, 0);
+
+
+    let discount = 0;
+    if (totalQuantity === 2) discount = 5.62;
+    else if (totalQuantity === 3) discount = 11.242;
+    else if (totalQuantity >= 4) discount = 15; // -15%
+
+    const { totalPrice } = calculWheelchairPrice(
+      Number(currentProduct?.currentPrice) || 16900,
+      totalQuantity,
+      discount
+    );
+
+    const framesCount = formik.values.beneficiaries.filter(
+      (b) => b.frameType === "qr",
+    ).length;
+    const framesPrice = framesCount * (cadreProduct.cadrePrice ? cadreProduct.cadrePrice / 100 : 10.90);
+    const finalPrice = totalPrice + framesPrice;
+
+    setTotalPrice(finalPrice);
+  }, [formik.values.beneficiaries, currentProduct, setTotalPrice]);
+
   const steps = [
     {
       number: 1,
-      value: "Bénéficiaires",
+      value: t("steps.stepOne"),
       component: (
         <BeneficiaryForm
           openIndexes={openIndexes}
           onToggleBeneficiary={(index) => {
-            const hasError = !!formik.errors.beneficiaries?.[index] && !!formik.touched.beneficiaries?.[index]
+            const hasError =
+              !!formik.errors.beneficiaries?.[index] &&
+              !!formik.touched.beneficiaries?.[index];
             handleToggleBeneficiary(index, hasError);
           }}
         />
       ),
     },
-    { number: 2, value: "Quantité", component: <WheelchairForm /> },
-    { number: 3, value: "Preuve du dépôt ", component: <FrameForm /> },
+    { number: 2, value: t("steps.stepTwo"), component: <WheelchairForm /> },
+    { number: 3, value: t("steps.stepThree"), component: <FrameForm /> },
   ];
 
   return (
@@ -271,6 +325,14 @@ const Stepper = () => {
       </div>
       <div className="mt-7">
         {steps.find((step) => step.number === currentStep)?.component}
+        {(isLastStep || !isFirstStep) &&
+        <div className="rounded-[20px] my-6 bg-dark-light p-3">
+          <div className="bg-white p-4 flex items-center justify-between rounded-xl">
+            <p className="text-base font-semibold">{t('recap.total')}</p>
+            <p className="text-base font-bold">{totalPrice.toFixed(2)} €</p>
+          </div>
+        </div>
+        }
       </div>
       <div className="flex justify-between mt-4">
         {!isFirstStep ? (
@@ -279,7 +341,7 @@ const Stepper = () => {
             onClick={handlePrevious}
             className="text-primary text-base"
           >
-            Précédent
+            {t("steps.previous")}
           </button>
         ) : (
           <button
@@ -287,7 +349,7 @@ const Stepper = () => {
             className={`cursor-pointer border border-secondary px-6 py-4 rounded-full text-base text-secondary font-semibold`}
             onClick={() => handleAddBeneficiary()}
           >
-            + Ajouter un bénéficiaire
+            {t("beneficiaries.addBeneficiary")}
           </button>
         )}
         <button
@@ -295,7 +357,7 @@ const Stepper = () => {
           onClick={handleSubmit}
           className="bg-primary float-right text-white font-semibold text-base rounded-full px-6 py-4"
         >
-          {isLastStep ? "Soumettre" : "Suivant"}
+          {isLastStep ? t("steps.submit") : t("steps.next")}
         </button>
       </div>
     </>

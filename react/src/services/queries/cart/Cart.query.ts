@@ -1,8 +1,6 @@
 import { ICart, ICartInput } from "../../../models/cart/ICart";
 import { client } from "../../storefront/ShopifyClient";
 
-
-
 export async function createCart(input: ICartInput): Promise<ICart> {
   try {
     const cartMutation = `

@@ -1,0 +1,93 @@
+{
+  "steps": {
+    "stepOne": "Begunstigden",
+    "stepTwo": "Aantal",
+    "stepThree": "Bewijs van storting",
+    "next": "Volgende",
+    "previous": "Vorige",
+    "submit": "Indienen"
+  },
+  "beneficiaries": {
+    "title": "Begunstigde nr. {{number}}",
+    "fields": {
+      "name": {
+        "label": "Voor- en achternaam",
+        "placeholder": "Bijv.: Muhammad Al Muni",
+        "errors": {
+          "required": "De naam is verplicht",
+          "minLength": "De naam moet minstens 2 tekens bevatten",
+          "maxLength": "De naam mag niet langer zijn dan 25 tekens"
+        }
+      },
+      "gender": {
+        "label": "De begunstigde is",
+        "options": {
+          "male": "Man",
+          "aMale": "Een man",
+          "female": "Vrouw",
+          "aFemale": "Een vrouw"
+        },
+        "errors": {
+          "required": "Het geslacht is verplicht"
+        }
+      },
+      "status": {
+        "label": "Overleden of ziek?",
+        "options": {
+          "deceased": "Overleden",
+          "sick": "Ziek",
+          "none": "Nee"
+        },
+        "errors": {
+          "required": "De status is verplicht"
+        }
+      }
+    },
+    "addBeneficiary": "+ Begunstigde toevoegen"
+  },
+  "quantity": {
+    "title": "Rolstoel voor <span className=\"capitalize font-medium\">{{name}}</span>",
+    "wheelchair": {
+      "label": "1 Rolstoel",
+      "label_2": "2 Rolstoelen",
+      "label_3": "3 Rolstoelen",
+      "label_custom": "Aangepaste hoeveelheid",
+      "description": "Help veel pelgrims hun rituelen in alle rust te volbrengen.",
+      "description_2": "Verdubbel de beloningen voor jezelf en je dierbaren.",
+      "description_3": "Vergroot de impact in Mekka met 3 donaties.",
+      "errors": {
+        "required": "Het aantal rolstoelen is verplicht",
+        "minLength": "Moet minstens 1 zijn"
+      }
+    }
+  },
+  "frame": {
+    "title": "Bewijs van storting voor <span className=\"capitalize font-medium\">{{name}}</span>",
+    "frameType": {
+      "mail": "Via e-mail",
+      "qr": "Met QR-code",
+      "description": "",
+      "description_mail": "",
+      "description_qr": "Ontvang thuis een QR-code kader om de video van de storting te bekijken.",
+      "price_mail": "Gratis",
+      "price_qr": "",
+      "errors": {
+        "required": "Het type kader is verplicht"
+      }
+    }
+  },
+  "checkout": {
+    "attributes": {
+      "gender": "Geslacht ",
+      "status": "Status ",
+      "name": "Op naam van ",
+      "proof": "Bewijs van storting ",
+      "proofInName": "Bewijs op naam van ",
+      "frameTypeMail": "Video via e-mail",
+      "frameTypeQr": "QR-code kader"
+    }
+  },
+  "recap": {
+    "total": "Totaalbedrag van de dienst"
+  }
+}

@@ -7,9 +7,11 @@ const Radio: React.FC<
     suffix?: string;
     otherSuffix?: string;
     description?: string;
+    promo?: string;
+    beneficiaryIndex?: number
   }
 > = (props) => {
-  const { isCustom, suffix, otherSuffix, description, ...radioProps } = props;
+  const { isCustom, suffix, otherSuffix, description, promo, beneficiaryIndex, ...radioProps } = props;
   const { inputProps } = useRadio(radioProps);
   const { className, ...input } = inputProps;
 
@@ -44,6 +46,14 @@ const Radio: React.FC<
     },
   ];
 
+  const returnPromo = () => {
+    if(promo?.includes('5')){
+      return '5'
+    }else if (promo?.includes("11")){
+      return '10'
+    }
+  }
+
   return (
     <label
       className={`items-center gap-3 inline-flex justify-center select-none cursor-pointer align-top bg-transparent transition-colors duration-200 rounded-lg px-2 py-3 hover:bg-[#1b1b1b] ${className}`}
@@ -76,12 +86,19 @@ const Radio: React.FC<
       <div className="w-full flex flex-col gap-2">
         <div className="flex items-center justify-between">
           <div className="flex flex-col gap-1 w-[70%]">
+            <div className="flex items-center gap-4">
+
             <p
               className=" text-[16px] font-bold"
               aria-label={props["aria-label"]}
-            >
+              >
               {props.label}
             </p>
+            {promo &&
+
+            <p className="rounded-full px-3 py-1 bg-[#b9875e1a] font-bold text-[#b9875e] text-xs">-{returnPromo()}%</p>
+          }
+          </div>
             {props.description && (
               <span className="text-xs font-medium">{description}</span>
             )}
@@ -93,7 +110,7 @@ const Radio: React.FC<
               </p>
             )}
             {otherSuffix && (
-              <span className="text-xs font-medium text-gray-400 line-through">
+              <span className="text-xs text-right font-medium text-gray-400 line-through">
                 {otherSuffix}
               </span>
             )}

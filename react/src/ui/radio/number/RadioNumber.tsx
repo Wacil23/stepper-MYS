@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { RadioNumberProps } from ".";
 import { useRadio } from "..";
 import { IoChevronBack } from "react-icons/io5";
+import { calculWheelchairPrice } from "../../../utils/calculWheelchair";
 
 type RadioNumberType = RadioNumberProps & {
   onNumberChange: (
@@ -12,8 +13,11 @@ type RadioNumberType = RadioNumberProps & {
   min?: number;
   isCustom?: boolean;
   suffix?: string;
-  otherSuffix?: string;
   productPrice?: string;
+  promo?: string;
+  numberValues: number;
+  numberSelection?: number;
+  index?: string
 };
 
 const RadioNumber: React.FC<RadioNumberType> = (props) => {
@@ -21,48 +25,89 @@ const RadioNumber: React.FC<RadioNumberType> = (props) => {
     isCustom,
     min = 4,
     onNumberChange,
+    onChange,
     suffix,
-    otherSuffix,
+    numberValues,
     productPrice,
+    promo,
+    numberSelection,
+    index,
+    checked,
     ...radioProps
   } = props;
   const { inputProps } = useRadio(radioProps);
-  const { className, ...input } = inputProps;
-  const [numberValue, setNumberValue] = useState(4);
-
-  const priceInEuros = Number(productPrice ?? "16900") / 100;
-  const totalBeforeDiscount = (priceInEuros * numberValue).toFixed(2) + " €";
+  const { className, onChange: nativeOnChange, ...input } = inputProps;
+  const [value, setValue] = useState(min);
+  const { priceWithoutDiscount, totalPrice} = calculWheelchairPrice(Number(productPrice), Number(value), Number(promo))
+  const totalPriceCustomWheelchair = totalPrice.toFixed(2) + " €"
+  const otherSuffix = priceWithoutDiscount + " €"
 
   const handleMinusClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation();
-    e.preventDefault();
-    setNumberValue((prev) => {
-      const fakeEvent = {
+    e.stopPropagation()
+    setValue((prev) => {
+      const newValue = Math.max(prev - 1, min)
+      onNumberChange({
         target: {
-          name: radioProps.name,
-          value: String(Math.max(prev - 1, min)),
+          name: inputProps.name,
+          value: String(newValue),
         },
-      } as React.ChangeEvent<HTMLInputElement>;
-      onNumberChange?.(fakeEvent);
-
-      return Math.max(prev - 1, min);
-    });
+      } as React.ChangeEvent<HTMLInputElement>);
+      notifyParentOnChange(newValue);
+      return newValue
+    })
   };
 
   const handlePlusClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
-    e.preventDefault();
-    setNumberValue((prev) => {
-      const fakeEvent = {
-        target: { name: radioProps.name, value: String(prev + 1) },
-      } as React.ChangeEvent<HTMLInputElement>;
+    setValue((prev) => {
+      const newValue = prev + 1
+      onNumberChange({
+        target: {
+          name: inputProps.name,
+          value: String(newValue),
+        },
+      } as React.ChangeEvent<HTMLInputElement>);
+      notifyParentOnChange(newValue);
+      return newValue
+    })
 
-      onNumberChange?.(fakeEvent);
-      return prev + 1;
-    });
   };
 
+  const returnPromo = () => {
+    if (promo?.includes("14")) {
+      return "15";
+    }
+    return '15'
+  };
 
+  const notifyParentOnChange = (newValue: number) => {
+    const customEvent = {
+      target: {
+        name: inputProps.name,
+        value: String(newValue),
+      },
+    } as React.ChangeEvent<HTMLInputElement>;
+
+    if (onChange) {
+      onChange(customEvent);
+    }
+  };
+
+  const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(value);
+    onNumberChange({
+      target: {
+        name: e.target.name,
+        value: String(value),
+      },
+    } as React.ChangeEvent<HTMLInputElement>);
+
+    notifyParentOnChange(value);
+
+    if (typeof nativeOnChange === 'function') {
+      nativeOnChange(e);
+    }
+  };
 
   return (
     <label
@@ -70,20 +115,27 @@ const RadioNumber: React.FC<RadioNumberType> = (props) => {
       htmlFor={inputProps.id}
     >
       <span className="flex">
-        <input className="hide-visually" {...input} />
+        <input className="hide-visually" onChange={handleRadioChange} {...input} />
         <img
           src="https://cdn.shopify.com/s/files/1/0793/7412/3350/files/wheel4.png?v=1737255675"
-          className={`w-12 ${radioProps.checked ? "opacity-100" : "opacity-40"}`}
+          className={`w-12 ${checked ? "opacity-100" : "opacity-40"}`}
         />
       </span>
       <div className="flex items-center justify-between w-full">
-        <div className="flex flex-col gap-2">
-          <span
-            className="text-[16px] font-bold"
-            aria-label={props["aria-label"]}
-          >
-            {props.label}
-          </span>
+        <div className="flex flex-col gap-2 w-2/3">
+          <div className="flex items-center gap-2">
+            <span
+              className="text-[16px] font-bold"
+              aria-label={props["aria-label"]}
+            >
+              {props.label}
+            </span>
+            {promo && (
+              <p className="rounded-full px-3 py-1 bg-[#b9875e1a] font-bold text-[#b9875e] text-xs">
+                -{returnPromo()}%
+              </p>
+            )}
+          </div>
           {isCustom && (
             <div className="flex border py-1 rounded-full justify-between items-stretch">
               <button onClick={handleMinusClick} className=" px-3">
@@ -92,7 +144,7 @@ const RadioNumber: React.FC<RadioNumberType> = (props) => {
               <input
                 onChange={props.onNumberChange}
                 type="number"
-                value={numberValue}
+                value={checked ? numberValues : value}
                 min={min}
                 readOnly
                 className="w-14 h-7 text-center focus-visible:outline-none"
@@ -103,7 +155,13 @@ const RadioNumber: React.FC<RadioNumberType> = (props) => {
             </div>
           )}
         </div>
-        <p className="text-[16px] text-secondary  font-semibold">{totalBeforeDiscount}</p>
+        <div className="flex flex-col">
+
+        <p className="text-[16px] text-secondary  font-semibold">
+          {totalPriceCustomWheelchair}
+        </p>
+        {otherSuffix && <p className="text-xs font-medium text-right text-gray-400 line-through">{otherSuffix}</p>}
+        </div>
       </div>
     </label>
   );
