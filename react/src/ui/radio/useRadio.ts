@@ -58,6 +58,7 @@ const useRadio = (props: Partial<FormFieldInputProps<RadioProps>>) => {
 
   const inputProps: React.InputHTMLAttributes<HTMLInputElement> & {
     "data-cerberus"?: string;
+    formIdentifier?: string | undefined
   } = {
     ...props,
     "aria-invalid": !!props.error,

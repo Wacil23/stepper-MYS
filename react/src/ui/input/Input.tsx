@@ -51,13 +51,6 @@ const Input: React.FC<InputProps> = (props) => {
         onBlur?.(event);
     };
 
-    // const handleClear = () => {
-    //     onChange?.({ target: { value: '' } } as React.ChangeEvent<HTMLInputElement>); // Clear the field value
-    //     if (usedRef.current) {
-    //         usedRef.current?.focus();
-    //     }
-    // };
-
     const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
         onInput?.(event);
     };
@@ -94,10 +87,10 @@ const Input: React.FC<InputProps> = (props) => {
 
     return (
         <div className='relative flex flex-col gap-[2px]'>
-            <p className='relative'>
-                <label className='cursor-pointer text-primary text-base font-semibold inline-block mb-1' htmlFor={id}>{label} {required && <p className='text-red-500'>*</p>}</label>
+            <div className='relative'>
+                <label className='cursor-pointer text-primary text-base flex items-center font-semibold gap-1 mb-1' htmlFor={id}>{label} {required&& <p className='text-red-500'>*</p>}</label>
                 <input
-                className={`${fluid ? 'w-full': ''} placeholder:text-sm h-[42px] py-2 px-3 text-sm  border rounded-xl ${error ? 'border-red-500 text-red-500': ' border-dark-stroke'}`}
+                className={`${fluid ? 'w-full': ''} placeholder:text-sm h-[42px] py-2 pl-3 pr-12 text-sm  border rounded-xl ${error ? 'border-red-500 text-red-500': ' border-dark-stroke'}`}
                     type={type}
                     id={id}
                     name={name}
@@ -120,7 +113,8 @@ const Input: React.FC<InputProps> = (props) => {
                     onInput={handleInput}
                     onKeyDown={handleKeyDown}
                 />
-            </p>
+                {maxLength && <p className='text-[10px] text-gray-400 absolute top-11 right-3'>{value.length}/{maxLength}</p>}
+            </div>
             {renderHelperText()}
         </div>
     );

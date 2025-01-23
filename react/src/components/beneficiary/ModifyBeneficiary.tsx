@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { FaChevronDown } from "react-icons/fa6";
 import { Form } from "../../ui/form/Form";
 import { InputText } from "../../ui/input-text";
 import { Civility } from "../../ui/civility/Civility";
 import { useFormContext } from "../../contexts/FormProvider";
 import { IoClose } from "react-icons/io5";
-import { FieldInputProps } from "formik";
+import { useTranslation } from "react-i18next";
 
 type ModifyBeneficiaryProps = {
   index: number;
@@ -26,28 +26,24 @@ const ModifyBeneficiary: React.FC<ModifyBeneficiaryProps> = ({
 }) => {
   const { formik } = useFormContext();
   const { values } = formik;
-  const [currentGender, setCurrentGender] =
-    useState<FieldInputProps<any> | null>(null);
+  const { t } = useTranslation();
 
-  useEffect(() => {
-    const currentCivility = formik.getFieldProps(
-      `beneficiaries[${index}].gender`,
-    );
-    setCurrentGender(currentCivility);
-  }, [formik, index]);
+  const genderValue = formik.values.beneficiaries[index]?.gender;
+  const isFemale = genderValue === t("beneficiaries.fields.gender.options.female").toLowerCase();
+
 
   const beneficiaryNumber = index + 1;
   const beneficiary = values.beneficiaries[index];
 
   const civilityOptions = [
-    { value: "femme", label: "Femme" },
-    { value: "homme", label: "Homme" },
+    { value: t('beneficiaries.fields.gender.options.female').toLocaleLowerCase(), label: t('beneficiaries.fields.gender.options.female') },
+    { value: t('beneficiaries.fields.gender.options.male').toLocaleLowerCase(), label: t('beneficiaries.fields.gender.options.male') },
   ];
 
   const statusOptions = [
-    { value: "Malade", label: "Malade" },
-    { value: "Décédé(e)", label: "Décédé(e)" },
-    { value: "Non", label: "Non" },
+    { value: t('beneficiaries.fields.status.options.sick'), label: t('beneficiaries.fields.status.options.sick')},
+    { value:t('beneficiaries.fields.status.options.deceased'), label:t('beneficiaries.fields.status.options.deceased') },
+    { value: t('beneficiaries.fields.status.options.none'), label: t('beneficiaries.fields.status.options.none') },
   ];
 
   return (
@@ -61,13 +57,13 @@ const ModifyBeneficiary: React.FC<ModifyBeneficiaryProps> = ({
             <img
               className="w-6 rounded-full"
               src={
-                currentGender?.value === "femme"
+               isFemale
                   ? "https://cdn.shopify.com/s/files/1/0793/7412/3350/files/girlmuslim.png?v=1737260312"
                   : "https://cdn.shopify.com/s/files/1/0793/7412/3350/files/menmuslim.png?v=1737260312"
               }
             />
             <p className="text-base font-bold">
-              Bénéficiaire n°{beneficiaryNumber}
+              {t('beneficiaries.title', {number: beneficiaryNumber})}
               {values.beneficiaries && (
                 <span className="font-normal capitalize">
                   {" "}
@@ -91,21 +87,21 @@ const ModifyBeneficiary: React.FC<ModifyBeneficiaryProps> = ({
           </div>
         </div>
         <div
-        onClick={(e) => e.stopPropagation()}
-          className={`flex flex-col gap-7 transition-all duration-300  ${isOpen ? 'max-h-80' : 'max-h-0'}  height-transition bg-white rounded-b-2xl`}
+          onClick={(e) => e.stopPropagation()}
+          className={`flex flex-col gap-7 transition-all duration-300  ${isOpen ? "max-h-80" : "max-h-0"}  height-transition bg-white rounded-b-2xl`}
         >
           <>
             <Form.Field
-              label="Nom + Prénom"
+              label={t('beneficiaries.fields.name.label')}
               component={InputText}
               name={`beneficiaries[${index}].name`}
-              placeholder="Ex: Muhammad Al Muni"
+              placeholder={t('beneficiaries.fields.name.placeholder')}
               inputProps={{
                 id: `beneficiaries-${index}-name`,
               }}
             />
             <Form.Field
-              label="Le bénéficiaire est"
+              label={t('beneficiaries.fields.gender.label')}
               component={Civility}
               name={`beneficiaries[${index}].gender`}
               inputProps={{
@@ -114,7 +110,7 @@ const ModifyBeneficiary: React.FC<ModifyBeneficiaryProps> = ({
               }}
             />
             <Form.Field
-              label="Décédé ou malade ?"
+              label={t('beneficiaries.fields.status.label')}
               component={Civility}
               name={`beneficiaries[${index}].status`}
               inputProps={{

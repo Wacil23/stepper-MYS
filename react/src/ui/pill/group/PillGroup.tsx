@@ -9,20 +9,20 @@ const PillGroup: React.FC<PillGroupProps> = (props) => {
   const [width, setWidth] = React.useState<string | undefined>(undefined);
   const groupRef = React.useRef<HTMLDivElement>(null);
   const radioGroupProps = useRadioGroup(props);
-  const updateIndicatorPosition = () => {
-    const selectedPill = groupRef.current?.querySelector(
-      '[data-checked="true"]',
-    );
+
+  const updateIndicatorPosition = React.useCallback(() => {
+    if (!groupRef.current) return;
+    const selectedPill = groupRef.current.querySelector('[data-checked="true"]') as HTMLElement;
     if (selectedPill) {
-      const { offsetLeft, offsetWidth } = selectedPill as HTMLElement;
+      const { offsetLeft, offsetWidth } = selectedPill;
       setWidth(`${offsetWidth}px`);
       setLeft(`${offsetLeft}px`);
     }
-  };
+  }, []);
 
   React.useEffect(() => {
     updateIndicatorPosition();
-  }, [updateIndicatorPosition]);
+  }, [updateIndicatorPosition, props.value]);
 
 
 
@@ -54,9 +54,9 @@ const PillGroup: React.FC<PillGroupProps> = (props) => {
 
   return (
     <div className="relative" {...radioGroupProps}>
-      <span className="inline-block text-base font-semibold cursor-pointer mb-2" id={radioGroupProps["aria-labelledby"]}>
-        {props.label}
-      </span>
+      <p className="inline-block text-base font-semibold cursor-pointer mb-2" id={radioGroupProps["aria-labelledby"]}>
+        {props.label} {props.required &&<span className="text-red-500">*</span>}
+      </p>
       <div ref={groupRef} className="relative flex w-fit rounded-full bg-dark-light z-[1] ">
         {left && width && <div className="h-full absolute bottom-0 bg-primary z-[-1] rounded-full transition-[left] duration-300"  style={{ left, width }}>&nbsp;</div>}
         {renderOptions()}

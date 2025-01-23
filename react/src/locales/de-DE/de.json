@@ -1,0 +1,93 @@
+{
+  "steps": {
+    "stepOne": "Begünstigte",
+    "stepTwo": "Menge",
+    "stepThree": "Einzahlungsnachweis",
+    "next": "Weiter",
+    "previous": "Zurück",
+    "submit": "Einreichen"
+  },
+  "beneficiaries": {
+    "title": "Begünstigter Nr. {{number}}",
+    "fields": {
+      "name": {
+        "label": "Vor- und Nachname",
+        "placeholder": "z.B.: Muhammad Al Muni",
+        "errors": {
+          "required": "Der Name ist erforderlich",
+          "minLength": "Der Name muss mindestens 2 Zeichen lang sein",
+          "maxLength": "Der Name darf nicht länger als 25 Zeichen sein"
+        }
+      },
+      "gender": {
+        "label": "Der Begünstigte ist",
+        "options": {
+          "male": "Mann",
+          "aMale": "Ein Mann",
+          "female": "Frau",
+          "aFemale": "Eine Frau"
+        },
+        "errors": {
+          "required": "Das Geschlecht ist erforderlich"
+        }
+      },
+      "status": {
+        "label": "Verstorben oder krank?",
+        "options": {
+          "deceased": "Verstorben",
+          "sick": "Krank",
+          "none": "Nein"
+        },
+        "errors": {
+          "required": "Der Status ist erforderlich"
+        }
+      }
+    },
+    "addBeneficiary": "+ Begünstigten hinzufügen"
+  },
+  "quantity": {
+    "title": "Rollstuhl für <span className=\"capitalize font-medium\">{{name}}</span>",
+    "wheelchair": {
+      "label": "1 Rollstuhl",
+      "label_2": "2 Rollstühle",
+      "label_3": "3 Rollstühle",
+      "label_custom": "Benutzerdefinierte Menge",
+      "description": "Helfen Sie vielen Pilgern, ihre Rituale in Ruhe zu vollziehen.",
+      "description_2": "Verdoppeln Sie die Belohnungen für sich und Ihre Angehörigen.",
+      "description_3": "Vergrößern Sie die Wirkung in Mekka mit 3 Spenden.",
+      "errors": {
+        "required": "Die Anzahl der Rollstühle ist erforderlich",
+        "minLength": "Mindestens 1 erforderlich"
+      }
+    }
+  },
+  "frame": {
+    "title": "Einzahlungsnachweis für <span className=\"capitalize font-medium\">{{name}}</span>",
+    "frameType": {
+      "mail": "Per E-Mail",
+      "qr": "Per QR-Code",
+      "description": "",
+      "description_mail": "",
+      "description_qr": "Erhalten Sie zu Hause einen QR-Code-Rahmen, um das Video der Einzahlung anzusehen.",
+      "price_mail": "Kostenlos",
+      "price_qr": "",
+      "errors": {
+        "required": "Der Rahmentyp ist erforderlich"
+      }
+    }
+  },
+  "checkout": {
+    "attributes": {
+      "gender": "Geschlecht ",
+      "status": "Status ",
+      "name": "Im Namen von ",
+      "proof": "Einzahlungsnachweis ",
+      "proofInName": "Nachweis im Namen von ",
+      "frameTypeMail": "Video per E-Mail",
+      "frameTypeQr": "QR-Code-Rahmen"
+    }
+  },
+  "recap": {
+    "total": "Gesamtbetrag des Services"
+  }
+}

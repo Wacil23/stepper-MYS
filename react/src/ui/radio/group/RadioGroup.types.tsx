@@ -26,6 +26,7 @@ type RadioGroupProps = FormFieldInputProps<
     onNumberChange?: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => void;
     numberValues?: number,
     productPrice?: string,
+    numberSelection?: number
   }
 >;
 

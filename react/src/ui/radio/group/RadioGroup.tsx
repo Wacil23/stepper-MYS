@@ -3,6 +3,7 @@ import { Radio } from "../Radio";
 import { RadioNumber } from "../number";
 import { type RadioGroupProps } from "./RadioGroup.types";
 import { useRadioGroup } from "./useRadioGroup";
+import { calculWheelchairPrice } from "../../../utils/calculWheelchair";
 
 const RadioGroup: React.FC<RadioGroupProps> = (props) => {
   const {
@@ -14,49 +15,41 @@ const RadioGroup: React.FC<RadioGroupProps> = (props) => {
     error,
     hint,
     numberValues,
+    numberSelection,
     onNumberChange,
     productPrice,
     className,
   } = props;
 
   const radioGroupProps = useRadioGroup(props);
-  const priceInEuros = Number(productPrice ?? "16900") / 100;
-
+  const isCustomSelected = value >= 4;
 
   const items = props.options.map((option) => {
-    const isCustomSelected = value >= 4
-    const isCustom = !!option.isCustom;
+    const qty = Number(option.value);
+    const { discountPercent, priceWithoutDiscount, totalPrice } =
+      calculWheelchairPrice(Number(productPrice), qty, Number(option?.promo));
 
-
-    // Calcul de la quantité effective
-    const qty = isCustom ? numberValues : Number(option.value);
-    const totalBeforeDiscount = priceInEuros * (qty ?? 1);
-    const discountPercent = Number(option.promo ?? "0");
-    const totalWithDiscount = totalBeforeDiscount * (1 - discountPercent / 100);
-
-    // Détermination des suffixes
-    let suffix = totalBeforeDiscount.toFixed(2) + " €";
+    let suffix = totalPrice.toFixed(2) + " €";
     let otherSuffix: string | undefined;
 
     if (discountPercent > 0) {
-      suffix = totalWithDiscount.toFixed(2) + " €";
-      otherSuffix = totalBeforeDiscount.toFixed(2) + " €";
-    }
-
-    if(isCustom && numberValues){
-      suffix = (priceInEuros * numberValues).toFixed(2) + " €"
+      suffix = totalPrice.toFixed(2) + " €";
+      otherSuffix = priceWithoutDiscount + " €";
     }
 
     if (option.suffix) {
       suffix = option.suffix;
     }
-    console.log(option.value, value)
+
+
+    const checked = value?.toString?.() === option.value?.toString?.();
+    const index = name.split('[')[1].split(']')[0];
 
     return (
       <div key={option.value} className="bg-white w-full rounded-[18px]">
         {option.isCustom ? (
           <RadioNumber
-            className={`w-full !rounded-[18px] !justify-start ${className} ${isCustomSelected ? "border-2 border-primary" : " border-2 border-transparent" }`}
+            className={`w-full !rounded-[18px] !justify-start ${className} ${isCustomSelected ? "border-2 border-primary" : " border-2 border-transparent"}`}
             label={option.label}
             aria-label={option["aria-label"]}
             checked={isCustomSelected}
@@ -65,30 +58,32 @@ const RadioGroup: React.FC<RadioGroupProps> = (props) => {
             name={name}
             onChange={props.onChange}
             required={required}
+            numberValues={numberValues!}
+            numberSelection={numberSelection}
             error={error}
-            formIdentifier={formIdentifier}
             isCustom={option.isCustom}
             onNumberChange={(e) => onNumberChange && onNumberChange(e)}
-            otherSuffix={otherSuffix}
             productPrice={productPrice}
+            promo={option.promo}
+            index={index}
           />
         ) : (
           <Radio
-            className={`w-full !rounded-[18px] !justify-start ${value?.toString?.() === option.value?.toString?.() ? "border-2 border-primary" : " border-2 border-transparent" } ${className}`}
+            className={`w-full !rounded-[18px] !justify-start ${checked ? "border-2 border-primary" : "border-2 border-transparent"} ${className}`}
             key={option.key || option.value}
             label={option.label}
             aria-label={option["aria-label"]}
             value={option.value}
-            checked={value?.toString?.() === option.value?.toString?.()}
+            checked={checked}
             disabled={disabled}
             name={name}
             onChange={props.onChange}
             required={required}
             error={error}
-            formIdentifier={formIdentifier}
             suffix={suffix}
             otherSuffix={otherSuffix}
             description={option.description}
+            promo={option.promo}
           />
         )}
       </div>
@@ -132,9 +127,7 @@ const RadioGroup: React.FC<RadioGroupProps> = (props) => {
           {props.label}
         </span>
       )}
-      <div className="flex flex-col items-start rounded-lg gap-4">
-        {items}
-      </div>
+      <div className="flex flex-col items-start rounded-lg gap-4">{items}</div>
       {renderHelperText()}
     </div>
   );

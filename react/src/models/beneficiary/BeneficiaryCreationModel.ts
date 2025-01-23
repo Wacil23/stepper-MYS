@@ -17,7 +17,7 @@ export type BeneficiaryCreationModel = {
    * Gender of the beneficiary
    * @example " homme "
    */
-  gender: 'homme' | 'femme';
+  gender:string;
   /**
    * Current status of the beneficiary
    * @example "Malade"
@@ -37,6 +37,10 @@ export type BeneficiaryCreationModel = {
    * Is the beneficiary valid
    */
   isValid: boolean;
+  /**
+   * The price of product
+   */
+  price: number,
 }
 
 

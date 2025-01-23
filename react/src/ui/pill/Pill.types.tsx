@@ -1,6 +1,6 @@
 
-import { BaseComponentModel } from "../../types/base/BaseComponentType";
-import { FormFieldInputProps } from "../form";
+import { type BaseComponentModel } from "../../types/base/BaseComponentType";
+import { type FormFieldInputProps } from "../form";
 
 type PillProps = FormFieldInputProps<BaseComponentModel> & {
   parentRef?: React.RefObject<HTMLElement> | undefined;

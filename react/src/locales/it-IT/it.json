@@ -1,0 +1,93 @@
+{
+  "steps": {
+    "stepOne": "Beneficiari",
+    "stepTwo": "Quantità",
+    "stepThree": "Prova del deposito",
+    "next": "Avanti",
+    "previous": "Indietro",
+    "submit": "Invia"
+  },
+  "beneficiaries": {
+    "title": "Beneficiario n°{{number}}",
+    "fields": {
+      "name": {
+        "label": "Nome e cognome",
+        "placeholder": "Es: Muhammad Al Muni",
+        "errors": {
+          "required": "Il nome è obbligatorio",
+          "minLength": "Il nome deve contenere almeno 2 caratteri",
+          "maxLength": "Il nome non può superare i 25 caratteri"
+        }
+      },
+      "gender": {
+        "label": "Il beneficiario è",
+        "options": {
+          "male": "Uomo",
+          "aMale": "Un uomo",
+          "female": "Donna",
+          "aFemale": "Una donna"
+        },
+        "errors": {
+          "required": "Il genere è obbligatorio"
+        }
+      },
+      "status": {
+        "label": "Deceduto o malato?",
+        "options": {
+          "deceased": "Deceduto/a",
+          "sick": "Malato/a",
+          "none": "No"
+        },
+        "errors": {
+          "required": "Lo stato è obbligatorio"
+        }
+      }
+    },
+    "addBeneficiary": "+ Aggiungi un beneficiario"
+  },
+  "quantity": {
+    "title": "Sedia a rotelle per <span className=\"capitalize font-medium\">{{name}}</span>",
+    "wheelchair": {
+      "label": "1 Sedia a rotelle",
+      "label_2": "2 Sedie a rotelle",
+      "label_3": "3 Sedie a rotelle",
+      "label_custom": "Quantità personalizzata",
+      "description": "Aiuta numerosi pellegrini a compiere i loro riti in serenità.",
+      "description_2": "Raddoppia le ricompense per te e i tuoi cari.",
+      "description_3": "Moltiplica l'impatto a La Mecca con 3 depositi.",
+      "errors": {
+        "required": "Il numero di sedie a rotelle è obbligatorio",
+        "minLength": "Deve essere almeno 1"
+      }
+    }
+  },
+  "frame": {
+    "title": "Prova del deposito per <span className=\"capitalize font-medium\">{{name}}</span>",
+    "frameType": {
+      "mail": "Via email",
+      "qr": "Con QR code",
+      "description": "",
+      "description_mail": "",
+      "description_qr": "Ricevi a casa una cornice con QR code per visualizzare il video del deposito.",
+      "price_mail": "Gratuito",
+      "price_qr": "",
+      "errors": {
+        "required": "Il tipo di cornice è obbligatorio"
+      }
+    }
+  },
+  "checkout": {
+    "attributes": {
+      "gender": "Genere ",
+      "status": "Stato ",
+      "name": "A nome di ",
+      "proof": "Prova del deposito ",
+      "proofInName": "Prova a nome di ",
+      "frameTypeMail": "Video via email",
+      "frameTypeQr": "Cornice con QR code"
+    }
+  },
+  "recap": {
+    "total": "Totale del servizio"
+  }
+}
