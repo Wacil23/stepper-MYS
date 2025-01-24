@@ -27,7 +27,9 @@ const FormContext = createContext<FormContextProps | undefined>(undefined);
 interface FormProviderProps {
   children: ReactNode;
   onSubmitSuccess?: (values: BeneficiariesCreationModel) => void;
-  product: {currentProduct: any, cadreProduct: any}
+  product: {currentProduct: any, cadreProduct: any},
+  country: string,
+  setCountry: React.Dispatch<React.SetStateAction<string>>
 
 }
 

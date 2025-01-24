@@ -1,0 +1,94 @@
+{
+  "steps": {
+    "stepOne": "Bénéficiaires",
+    "stepTwo": "Quantité",
+    "stepThree": "Preuve du dépôt",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "submit": "Suivant"
+  },
+  "beneficiaries": {
+    "title": "Bénéficiaire n°{{number}}",
+    "fields": {
+      "name": {
+        "label": "Nom + prénom",
+        "placeholder": "Ex : Muhammad Al Muni",
+        "errors": {
+          "required": "Le nom est requis",
+          "minLength": "Le nom doit contenir au moins 2 caractères",
+          "maxLength": "Le nom ne peut dépasser 25 caractères"
+        }
+      },
+      "gender": {
+        "label": "Le bénéficiaire est",
+        "options": {
+          "male": "Homme",
+          "aMale": "Un homme",
+          "female": "Femme",
+          "aFemale": "Une femme"
+        },
+        "errors": {
+          "required": "Le genre est requis"
+        }
+      },
+      "status": {
+        "label": "Décédé ou malade ?",
+        "options": {
+          "deceased": "Décédé(e)",
+          "sick": "Malade",
+          "none": "Non"
+        },
+        "errors": {
+          "required": "Le status est requis"
+        }
+      }
+    },
+    "addBeneficiary": "+ Ajouter un bénéficiaire"
+  },
+  "quantity": {
+    "title": "Fauteuil pour <span className=\"capitalize font-medium\">{{name}}</span>",
+    "wheelchair": {
+      "label": "1 Fauteuil",
+      "label_2": "2 Fauteuils",
+      "label_3": "3 Fauteuils",
+      "label_custom": "Quantité personnalisée",
+      "description": "Aidez de nombreux pèlerins à accomplir leurs rites en toute sérénité.",
+      "description_2": "Doublez les hassanates pour vous et vos proches.",
+      "description_3": "Multipliez l'impact au sein de Makkah avec 3 dépôts.",
+      "errors": {
+        "required": "Le nombre de fauteuil roulant est requis",
+        "minLength": "Doit être au moins 1"
+      }
+
+    }
+  },
+  "frame": {
+    "title": "Preuve du dépôt pour <span className=\"capitalize font-medium\">{{name}}</span>",
+    "frameType": {
+      "mail": "Par mail",
+      "qr": "Par QR code",
+      "description": "",
+      "description_mail": "",
+      "description_qr": "Recevez chez vous un cadre QR code pour visionner la vidéo du dépôts.",
+      "price_mail": "Gratuit",
+      "price_qr": "",
+      "errors": {
+        "required": "Le type de cadre est requis"
+      }
+    }
+  },
+  "checkout": {
+    "attributes": {
+      "gender": "Genre ",
+      "status": "Status ",
+      "name": "Au nom de ",
+      "proof": "Preuve du dépôt ",
+      "proofInName": "Preuve au nom de ",
+      "frameTypeMail": "Vidéo par mail",
+      "frameTypeQr": "Cadre QR code"
+    }
+  },
+  "recap": {
+    "total": "Total du service"
+  }
+}

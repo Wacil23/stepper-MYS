@@ -15,6 +15,7 @@ const domainDetector = {
     if (hostname.includes('mysadaka.de')) return 'de';
     if (hostname.includes('mysadaka.nl')) return 'nl';
     if (hostname.includes('mysadaka.it')) return 'it';
+    if (hostname.includes('mysadaka.ch')) return 'ch';
     return 'fr'; // Par défaut, français
   },
   cacheUserLanguage: () => {}, // Pas de mise en cache nécessaire

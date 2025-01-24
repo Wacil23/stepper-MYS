@@ -4,6 +4,7 @@ import { RadioNumber } from "../number";
 import { type RadioGroupProps } from "./RadioGroup.types";
 import { useRadioGroup } from "./useRadioGroup";
 import { calculWheelchairPrice } from "../../../utils/calculWheelchair";
+import { useFormContext } from "../../../contexts/FormProvider";
 
 const RadioGroup: React.FC<RadioGroupProps> = (props) => {
   const {
@@ -23,18 +24,19 @@ const RadioGroup: React.FC<RadioGroupProps> = (props) => {
 
   const radioGroupProps = useRadioGroup(props);
   const isCustomSelected = value >= 4;
+  const {currentProduct} = useFormContext()
 
   const items = props.options.map((option) => {
     const qty = Number(option.value);
     const { discountPercent, priceWithoutDiscount, totalPrice } =
       calculWheelchairPrice(Number(productPrice), qty, Number(option?.promo));
 
-    let suffix = totalPrice.toFixed(2) + " €";
+    let suffix = totalPrice.toFixed(2) + ` ${currentProduct.currentSymbol}`;
     let otherSuffix: string | undefined;
 
     if (discountPercent > 0) {
-      suffix = totalPrice.toFixed(2) + " €";
-      otherSuffix = priceWithoutDiscount + " €";
+      suffix = totalPrice.toFixed(2) + ` ${currentProduct.currentSymbol}`;
+      otherSuffix = priceWithoutDiscount + ` ${currentProduct.currentSymbol}`;
     }
 
     if (option.suffix) {

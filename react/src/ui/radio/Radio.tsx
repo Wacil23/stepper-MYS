@@ -47,11 +47,13 @@ const Radio: React.FC<
   ];
 
   const returnPromo = () => {
-    if(promo?.includes('5')){
-      return '5'
-    }else if (promo?.includes("11")){
+    if(promo === "12"){
       return '10'
+    }else if (promo === "22"){
+      return '20'
     }
+    return promo
+    // For 4 Don't forget its on RadioNumber
   }
 
   return (
@@ -94,10 +96,7 @@ const Radio: React.FC<
               >
               {props.label}
             </p>
-            {promo &&
-
-            <p className="rounded-full px-3 py-1 bg-[#b9875e1a] font-bold text-[#b9875e] text-xs">-{returnPromo()}%</p>
-          }
+            {promo && <p className="rounded-full px-3 py-1 bg-[#b9875e1a] font-bold text-[#b9875e] text-xs">-{returnPromo()}%</p>}
           </div>
             {props.description && (
               <span className="text-xs font-medium">{description}</span>

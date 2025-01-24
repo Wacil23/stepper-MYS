@@ -8,6 +8,7 @@ import { createCart } from "../../services/queries/cart/Cart.query";
 import { ICartInput } from "../../models/cart/ICart";
 import { useTranslation } from "react-i18next";
 import { calculWheelchairPrice } from "../../utils/calculWheelchair";
+import i18n from "../../locales/i18n";
 
 const Stepper = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
@@ -18,7 +19,7 @@ const Stepper = () => {
   const isFirstStep = currentStep === 1;
   const stepperRef = useRef<HTMLDivElement | null>(null);
   const headerHeight = 85;
-  const {setTotalPrice, totalPrice, currentProduct, cadreProduct} = useFormContext()
+  const {setTotalPrice, totalPrice, currentProduct, cadreProduct} = useFormContext();
   const { t } = useTranslation();
 
   const aMale = t("beneficiaries.fields.gender.options.aMale");
@@ -139,6 +140,7 @@ const Stepper = () => {
               value: frameTypeValue(beneficiary.frameType),
             },
           ],
+
         };
       });
 
@@ -159,6 +161,10 @@ const Stepper = () => {
 
       const input: ICartInput = {
         lines: [...wheelchairLines, ...frameQrLines],
+        buyerIdentity: {
+          countryCode: currentProduct.currentSymbol === "CHF" ? "CH" : i18n.language.toUpperCase()
+        }
+
       };
 
       const cartResponse = await createCart(input);
@@ -248,9 +254,10 @@ const Stepper = () => {
 
 
     let discount = 0;
-    if (totalQuantity === 2) discount = 5.62;
-    else if (totalQuantity === 3) discount = 11.242;
-    else if (totalQuantity >= 4) discount = 15; // -15%
+    if (totalQuantity === 1) discount = 12;
+    if (totalQuantity === 2) discount = 15;
+    else if (totalQuantity === 3) discount = 22;
+    else if (totalQuantity >= 4) discount = 27;
 
     const { totalPrice } = calculWheelchairPrice(
       Number(currentProduct?.currentPrice) || 16900,
@@ -329,7 +336,7 @@ const Stepper = () => {
         <div className="rounded-[20px] my-6 bg-dark-light p-3">
           <div className="bg-white p-4 flex items-center justify-between rounded-xl">
             <p className="text-base font-semibold">{t('recap.total')}</p>
-            <p className="text-base font-bold">{totalPrice.toFixed(2)} €</p>
+            <p className="text-base font-bold">{totalPrice.toFixed(2)} {currentProduct.currentSymbol}</p>
           </div>
         </div>
         }

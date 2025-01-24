@@ -7,7 +7,14 @@
     {% endcase %}
 {% endfor %}
 
-<div data-cadre-id="{{cadre.id}}" data-cadre-title="{{cadre.title}}" data-cadre-price="{{cadre.price}}" data-current-id="{{current_product.id}}" data-current-title="{{current_product.title}}" data-current-price="{{current_product.price}}" id="product-stepper">
+{% for currency in shop.enabled_currencies %}
+  {% if currency.iso_code == shop.currency %}
+    {% assign symbol = currency.symbol %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+<div data-cadre-id="{{cadre.id}}" data-cadre-title="{{cadre.title}}" data-cadre-price="{{cadre.price}}" data-current-id="{{current_product.id}}" data-current-title="{{current_product.title}}" data-current-price="{{current_product.price}}" data-current-symbol="{{symbol}}" id="product-stepper">
 
   <!-- On peut afficher un "chargement" par défaut, qui sera remplacé par React -->
   <div class="stepper-loading">Chargement en cours...</div>

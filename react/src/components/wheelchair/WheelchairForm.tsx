@@ -23,24 +23,25 @@ const WheelchairForm = () => {
       label: t("quantity.wheelchair.label"),
       value: 1,
       description: t("quantity.wheelchair.description"),
+      promo: "12"
     },
     {
       label: t("quantity.wheelchair.label_2"),
       value: 2,
-      promo: "5.62",
+      promo: "15",
       description: t("quantity.wheelchair.description_2"),
     },
     {
       label: t("quantity.wheelchair.label_3"),
       value: 3,
-      promo: "11.242",
+      promo: "22",
       description: t("quantity.wheelchair.description_3"),
     },
     {
       label: t("quantity.wheelchair.label_custom"),
       value: 4,
       isCustom: true,
-      promo: "15",
+      promo: "27",
     },
   ];
 

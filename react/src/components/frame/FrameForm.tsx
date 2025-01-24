@@ -4,7 +4,7 @@ import { FormField } from "../../ui/form";
 import { RadioGroup } from "../../ui/radio";
 
 const FrameForm = () => {
-  const { formik, cadreProduct } = useFormContext();
+  const { formik, cadreProduct, currentProduct } = useFormContext();
   const { values } = formik;
   const { beneficiaries } = values;
   const { t } = useTranslation();
@@ -32,7 +32,7 @@ const FrameForm = () => {
     } else {
       return {
         ...option,
-        suffix: cadrePriceInEuros.toFixed(2) + " €",
+        suffix: cadrePriceInEuros.toFixed(2) + ` ${currentProduct.currentSymbol}`,
       };
     }
   });

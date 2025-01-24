@@ -7,6 +7,7 @@ export interface ICartInput {
   note?: string;
 }
 
+
 export interface CartLineInput {
   attributes?: AttributeInput[];
   merchandiseId?: string;
@@ -15,15 +16,15 @@ export interface CartLineInput {
 }
 
 export interface AttributeInput {
-  key: string;
-  value: string;
+  key?: string;
+  value?: string;
 }
 
 export interface CartBuyerIdentityInput {
   companyLocationId?: string;
-  countryCode: string;
-  email: string;
-  phone: string;
+  countryCode?: string;
+  email?: string;
+  phone?: string;
 }
 
 export interface ICart {

@@ -3,6 +3,7 @@ import { RadioNumberProps } from ".";
 import { useRadio } from "..";
 import { IoChevronBack } from "react-icons/io5";
 import { calculWheelchairPrice } from "../../../utils/calculWheelchair";
+import { useFormContext } from "../../../contexts/FormProvider";
 
 type RadioNumberType = RadioNumberProps & {
   onNumberChange: (
@@ -36,11 +37,12 @@ const RadioNumber: React.FC<RadioNumberType> = (props) => {
     ...radioProps
   } = props;
   const { inputProps } = useRadio(radioProps);
+  const {currentProduct} = useFormContext()
   const { className, onChange: nativeOnChange, ...input } = inputProps;
   const [value, setValue] = useState(min);
   const { priceWithoutDiscount, totalPrice} = calculWheelchairPrice(Number(productPrice), Number(value), Number(promo))
-  const totalPriceCustomWheelchair = totalPrice.toFixed(2) + " €"
-  const otherSuffix = priceWithoutDiscount + " €"
+  const totalPriceCustomWheelchair = totalPrice.toFixed(2) + ' ' + currentProduct.currentSymbol
+  const otherSuffix = priceWithoutDiscount + ' ' + currentProduct.currentSymbol
 
   const handleMinusClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation()
@@ -73,12 +75,6 @@ const RadioNumber: React.FC<RadioNumberType> = (props) => {
 
   };
 
-  const returnPromo = () => {
-    if (promo?.includes("14")) {
-      return "15";
-    }
-    return '15'
-  };
 
   const notifyParentOnChange = (newValue: number) => {
     const customEvent = {
@@ -108,6 +104,14 @@ const RadioNumber: React.FC<RadioNumberType> = (props) => {
       nativeOnChange(e);
     }
   };
+
+  const returnPromo = () => {
+    if(promo === "27"){
+      return '25'
+    }
+    return promo
+    // For 4 Don't forget its on RadioNumber
+  }
 
   return (
     <label
