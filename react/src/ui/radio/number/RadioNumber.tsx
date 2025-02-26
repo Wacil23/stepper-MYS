@@ -16,9 +16,10 @@ type RadioNumberType = RadioNumberProps & {
   suffix?: string;
   productPrice?: string;
   promo?: string;
+  reduction?: string;
   numberValues: number;
   numberSelection?: number;
-  index?: string
+  index?: string;
 };
 
 const RadioNumber: React.FC<RadioNumberType> = (props) => {
@@ -32,22 +33,44 @@ const RadioNumber: React.FC<RadioNumberType> = (props) => {
     productPrice,
     promo,
     numberSelection,
+    reduction,
     index,
     checked,
     ...radioProps
   } = props;
   const { inputProps } = useRadio(radioProps);
-  const {currentProduct} = useFormContext()
+  const { currentProduct, formik } = useFormContext();
+  const productType = formik.values.productType;
   const { className, onChange: nativeOnChange, ...input } = inputProps;
   const [value, setValue] = useState(min);
-  const { priceWithoutDiscount, totalPrice} = calculWheelchairPrice(Number(productPrice), Number(value), Number(promo))
-  const totalPriceCustomWheelchair = totalPrice.toFixed(2) + ' ' + currentProduct.currentSymbol
-  const otherSuffix = priceWithoutDiscount + ' ' + currentProduct.currentSymbol
+  const { priceWithoutDiscount, totalPrice } = calculWheelchairPrice(
+    productType,
+    Number(productPrice),
+    Number(value),
+    Number(reduction),
+    Number(promo),
+  );
+  let totalFinalPrice = totalPrice;
+  const totalWithoutDecimal = totalPrice.toFixed(2).split(".");
+
+  if (totalWithoutDecimal[1] === "00") {
+    totalFinalPrice = Number(totalPrice.toFixed(0));
+  } else {
+    totalFinalPrice = Number(totalPrice.toFixed(2));
+  }
+
+  const totalPriceCustomWheelchair =
+    totalFinalPrice.toFixed(2) + " " + currentProduct.currentSymbol;
+  let otherSuffix = null;
+  if (promo) {
+    otherSuffix =
+      priceWithoutDiscount.toFixed(0) + " " + currentProduct.currentSymbol;
+  }
 
   const handleMinusClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation()
+    e.stopPropagation();
     setValue((prev) => {
-      const newValue = Math.max(prev - 1, min)
+      const newValue = Math.max(prev - 1, min);
       onNumberChange({
         target: {
           name: inputProps.name,
@@ -55,14 +78,14 @@ const RadioNumber: React.FC<RadioNumberType> = (props) => {
         },
       } as React.ChangeEvent<HTMLInputElement>);
       notifyParentOnChange(newValue);
-      return newValue
-    })
+      return newValue;
+    });
   };
 
   const handlePlusClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     setValue((prev) => {
-      const newValue = prev + 1
+      const newValue = prev + 1;
       onNumberChange({
         target: {
           name: inputProps.name,
@@ -70,11 +93,9 @@ const RadioNumber: React.FC<RadioNumberType> = (props) => {
         },
       } as React.ChangeEvent<HTMLInputElement>);
       notifyParentOnChange(newValue);
-      return newValue
-    })
-
+      return newValue;
+    });
   };
-
 
   const notifyParentOnChange = (newValue: number) => {
     const customEvent = {
@@ -100,18 +121,25 @@ const RadioNumber: React.FC<RadioNumberType> = (props) => {
 
     notifyParentOnChange(value);
 
-    if (typeof nativeOnChange === 'function') {
+    if (typeof nativeOnChange === "function") {
       nativeOnChange(e);
     }
   };
 
   const returnPromo = () => {
-    if(promo === "27"){
-      return '25'
+    if (promo === "27") {
+      return "25";
     }
-    return promo
+    return promo;
     // For 4 Don't forget its on RadioNumber
-  }
+  };
+
+  const imageForNumberPorduct =
+    productType === "wheelchair"
+      ? "https://cdn.shopify.com/s/files/1/0793/7412/3350/files/wheel4.png?v=1737255675"
+      : productType === "quran"
+        ? "https://cdn.shopify.com/s/files/1/0793/7412/3350/files/Flyer_fauteuil_roulant_1.png?v=1738288861"
+        : "https://cdn.shopify.com/s/files/1/0793/7412/3350/files/omraplus.png?v=1738366909";
 
   return (
     <label
@@ -119,9 +147,13 @@ const RadioNumber: React.FC<RadioNumberType> = (props) => {
       htmlFor={inputProps.id}
     >
       <span className="flex">
-        <input className="hide-visually" onChange={handleRadioChange} {...input} />
+        <input
+          className="hide-visually"
+          onChange={handleRadioChange}
+          {...input}
+        />
         <img
-          src="https://cdn.shopify.com/s/files/1/0793/7412/3350/files/wheel4.png?v=1737255675"
+          src={imageForNumberPorduct}
           className={`w-12 ${checked ? "opacity-100" : "opacity-40"}`}
         />
       </span>
@@ -160,11 +192,14 @@ const RadioNumber: React.FC<RadioNumberType> = (props) => {
           )}
         </div>
         <div className="flex flex-col">
-
-        <p className="text-[16px] text-secondary  font-semibold">
-          {totalPriceCustomWheelchair}
-        </p>
-        {otherSuffix && <p className="text-xs font-medium text-right text-gray-400 line-through">{otherSuffix}</p>}
+          <p className="text-[16px] text-secondary  font-semibold">
+            {totalPriceCustomWheelchair}
+          </p>
+          {otherSuffix && (
+            <p className="text-xs font-medium text-right text-gray-400 line-through">
+              {otherSuffix}
+            </p>
+          )}
         </div>
       </div>
     </label>

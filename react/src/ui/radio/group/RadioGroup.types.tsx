@@ -12,7 +12,8 @@ type RadioGroupItemProps = Pick<
   /** Radio group item key */
   key?: string;
   isCustom?: boolean;
-  promo?: string
+  promo?: string;
+  reduction?: string;
   description?: string;
   suffix?: string;
 };

@@ -1,0 +1,139 @@
+{
+  "steps": {
+    "stepOne": "Beneficiarios",
+    "stepTwo": "Cantidad",
+    "stepThree": "Prueba de depósito",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "submit": "Siguiente"
+  },
+  "beneficiaries": {
+    "title": "Beneficiario n°{{number}}",
+    "fields": {
+      "name": {
+        "label": "Nombre + apellido",
+        "placeholder": "Ej: Muhammad Al Muni",
+        "errors": {
+          "required": "El nombre es obligatorio",
+          "minLength": "El nombre debe tener al menos 2 caracteres",
+          "maxLength": "El nombre no puede exceder los 25 caracteres"
+        }
+      },
+      "fatherName": {
+        "label": "Padre del beneficiario",
+        "placeholder": "Ej: 'Abd Allah",
+        "hint": "Si no conoce el nombre del padre del beneficiario, el nombre y apellido de su beneficiario serán suficientes inshâ Allah.",
+        "errors": {
+          "minLength": "El nombre debe tener al menos 2 caracteres",
+          "maxLength": "El nombre no puede exceder los 25 caracteres"
+        }
+      },
+      "gender": {
+        "label": "El beneficiario es",
+        "options": {
+          "male": "Hombre",
+          "aMale": "Un hombre",
+          "female": "Mujer",
+          "aFemale": "Una mujer"
+        },
+        "errors": {
+          "required": "El género es obligatorio"
+        }
+      },
+      "status": {
+        "label": "¿Fallecido o enfermo?",
+        "options": {
+          "deceased": "Fallecido(a)",
+          "sick": "Enfermo",
+          "none": "No"
+        },
+        "errors": {
+          "required": "El estado es obligatorio"
+        }
+      }
+    },
+    "addBeneficiary": "+ Añadir un beneficiario"
+  },
+  "quantity": {
+    "wheelchair": {
+      "title": "Silla de ruedas para <span className=\"capitalize font-medium\">{{name}}</span>",
+      "label": "1 Silla de ruedas",
+      "label_2": "2 Sillas de ruedas",
+      "label_3": "3 Sillas de ruedas",
+      "label_custom": "Cantidad personalizada",
+      "description": "Ayuda a muchos peregrinos a realizar sus ritos con serenidad.",
+      "description_2": "Duplica las recompensas para ti y tus seres queridos.",
+      "description_3": "Multiplica el impacto en Meca con 3 depósitos.",
+      "errors": {
+        "required": "El número de sillas de ruedas es obligatorio",
+        "minLength": "Debe ser al menos 1"
+      }
+    },
+    "quran": {
+      "title": "Corán para <span className=\"capitalize font-medium\">{{name}}</span>",
+      "label": "1 Corán",
+      "label_2": "2 Coranes",
+      "label_3": "3 Coranes",
+      "label_custom": "Cantidad personalizada",
+      "description": "En nombre de {{name}}",
+      "description_2": "En nombre de {{name}}",
+      "description_3": "En nombre de {{name}}",
+      "errors": {
+        "required": "El número de coranes es obligatorio",
+        "minLength": "Debe ser al menos 1"
+      }
+    },
+    "omra": {
+      "title": "Omra para <span className=\"capitalize font-medium\">{{name}}</span>",
+      "label": "1 Omra",
+      "label_2": "2 Omras",
+      "label_3": "3 Omras",
+      "label_custom": "Cantidad personalizada",
+      "description": "En nombre de {{name}}",
+      "description_2": "En nombre de {{name}}",
+      "description_3": "En nombre de {{name}}",
+      "errors": {
+        "required": "El número de omras es obligatorio",
+        "minLength": "Debe ser al menos 1"
+      }
+    }
+  },
+  "frame": {
+    "title": "Prueba de depósito para <span className=\"capitalize font-medium\">{{name}}</span>",
+    "frameType": {
+      "mail": "Por correo",
+      "qr": "Por código QR",
+      "description": "",
+      "description_mail": "",
+      "description_qr": "Recibe en casa un marco con código QR para ver el video del depósito.",
+      "price_mail": "Gratis",
+      "price_qr": "",
+      "errors": {
+        "required": "El tipo de marco es obligatorio"
+      }
+    }
+  },
+  "checkout": {
+    "attributes": {
+      "gender": "Género ",
+      "status": "Estado ",
+      "name": "En nombre de ",
+      "proof": "Prueba de depósito ",
+      "proofInName": "Prueba en nombre de ",
+      "frameTypeMail": "Video por correo",
+      "frameTypeQr": "Marco con código QR",
+      "fatherOmra": "Padre del beneficiario "
+    }
+  },
+  "recap": {
+    "total": "Total del servicio"
+  },
+  "reassurance": {
+    "title_paiement": "Pago seguro",
+    "title_livraison": "Entrega rápida",
+    "title_satisfaction": "Satisfecho o reembolsado",
+    "description_paiement": "Tus pagos con tarjeta (Visa, MasterCard, Amex, etc.) están protegidos, nos aseguramos de que cada transacción se realice con total tranquilidad.",
+    "description_livraison": "Recibe el video que certifica tu Sadaqa Jariya en un plazo de 10 a 15 días.",
+    "description_satisfaction": "Si no estás completamente satisfecho con el servicio, se te reembolsará íntegramente, Bi'idnilah"
+  }
+}

@@ -1,7 +1,7 @@
 import { Trans, useTranslation } from "react-i18next";
-import { useFormContext } from "../../contexts/FormProvider";
 import { FormField } from "../../ui/form";
 import { RadioGroup } from "../../ui/radio";
+import { useFormContext } from "../../contexts/FormProvider";
 
 const FrameForm = () => {
   const { formik, cadreProduct, currentProduct } = useFormContext();

@@ -1,9 +1,9 @@
 import React from "react";
 import ModifyBeneficiary from "./ModifyBeneficiary";
 import { FieldArray } from "formik";
+import { useFormContext } from "../../contexts/FormProvider";
 import { BeneficiariesCreationModel } from "../../models/beneficiary/BeneficiaryCreationModel";
 import { Form } from "../../ui/form/Form";
-import { useFormContext } from "../../contexts/FormProvider";
 
 type BeneficiaryFormProps = {
   onSubmitSuccess?: (values: BeneficiariesCreationModel) => void;

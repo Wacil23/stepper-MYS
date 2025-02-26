@@ -3,7 +3,7 @@
 client_id = "4798c49caa7e89fd0320dcbc6c71f87f"
 name = "stepper"
 handle = "stepper"
-application_url = "https://d5b8-2a01-e0a-af4-5de0-6978-6d91-e087-5b96.ngrok-free.app"
+application_url = "https://bhutan-horror-sofa-rats.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "read_files,read_metaobject_definitions,read_metaobjects,read_orders,re
 
 [auth]
 redirect_urls = [
-  "https://d5b8-2a01-e0a-af4-5de0-6978-6d91-e087-5b96.ngrok-free.app/auth/callback",
-  "https://d5b8-2a01-e0a-af4-5de0-6978-6d91-e087-5b96.ngrok-free.app/auth/shopify/callback",
-  "https://d5b8-2a01-e0a-af4-5de0-6978-6d91-e087-5b96.ngrok-free.app/api/auth/callback"
+  "https://bhutan-horror-sofa-rats.trycloudflare.com/auth/callback",
+  "https://bhutan-horror-sofa-rats.trycloudflare.com/auth/shopify/callback",
+  "https://bhutan-horror-sofa-rats.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

@@ -19,6 +19,15 @@
           "maxLength": "Il nome non può superare i 25 caratteri"
         }
       },
+      "fatherName": {
+        "label": "Padre del beneficiario",
+        "placeholder": "Es: 'Abd Allah",
+        "hint": "Se non conosci il nome del padre del beneficiario, il nome e cognome del beneficiario saranno sufficienti inshâ Allah.",
+        "errors": {
+          "minLength": "Il nome deve contenere almeno 2 caratteri",
+          "maxLength": "Il nome non può superare i 25 caratteri"
+        }
+      },
       "gender": {
         "label": "Il beneficiario è",
         "options": {
@@ -46,8 +55,8 @@
     "addBeneficiary": "+ Aggiungi un beneficiario"
   },
   "quantity": {
-    "title": "Sedia a rotelle per <span className=\"capitalize font-medium\">{{name}}</span>",
     "wheelchair": {
+      "title": "Sedia a rotelle per <span className=\"capitalize font-medium\">{{name}}</span>",
       "label": "1 Sedia a rotelle",
       "label_2": "2 Sedie a rotelle",
       "label_3": "3 Sedie a rotelle",
@@ -57,6 +66,34 @@
       "description_3": "Moltiplica l'impatto a La Mecca con 3 depositi.",
       "errors": {
         "required": "Il numero di sedie a rotelle è obbligatorio",
+        "minLength": "Deve essere almeno 1"
+      }
+    },
+    "quran": {
+      "title": "Corano per <span className=\"capitalize font-medium\">{{name}}</span>",
+      "label": "1 Corano",
+      "label_2": "2 Corani",
+      "label_3": "3 Corani",
+      "label_custom": "Quantità personalizzata",
+      "description": "A nome di {{name}}",
+      "description_2": "A nome di {{name}}",
+      "description_3": "A nome di {{name}}",
+      "errors": {
+        "required": "Il numero di Corani è obbligatorio",
+        "minLength": "Deve essere almeno 1"
+      }
+    },
+    "omra": {
+      "title": "Umrah per <span className=\"capitalize font-medium\">{{name}}</span>",
+      "label": "1 Umrah",
+      "label_2": "2 Umrah",
+      "label_3": "3 Umrah",
+      "label_custom": "Quantità personalizzata",
+      "description": "A nome di {{name}}",
+      "description_2": "A nome di {{name}}",
+      "description_3": "A nome di {{name}}",
+      "errors": {
+        "required": "Il numero di Umrah è obbligatorio",
         "minLength": "Deve essere almeno 1"
       }
     }
@@ -84,10 +121,19 @@
       "proof": "Prova del deposito ",
       "proofInName": "Prova a nome di ",
       "frameTypeMail": "Video via email",
-      "frameTypeQr": "Cornice con QR code"
+      "frameTypeQr": "Cornice con QR code",
+      "fatherOmra": "Padre del beneficiario "
     }
   },
   "recap": {
     "total": "Totale del servizio"
+  },
+  "reassurance": {
+    "title_paiement": "Pagamento sicuro",
+    "title_livraison": "Consegna rapida",
+    "title_satisfaction": "Soddisfatti o rimborsati",
+    "description_paiement": "I tuoi pagamenti con carta (Visa, MasterCard, Amex, ecc.) sono protetti, ci assicuriamo che ogni transazione avvenga in tutta tranquillità.",
+    "description_livraison": "Ricevi il video che attesta la tua Sadaqa Jariya entro 10-15 giorni.",
+    "description_satisfaction": "Se non sei completamente soddisfatto del servizio, sarai rimborsato integralmente, Bi’idnilah"
   }
 }

@@ -19,6 +19,15 @@
           "maxLength": "De naam mag niet langer zijn dan 25 tekens"
         }
       },
+      "fatherName": {
+        "label": "Vader van de begunstigde",
+        "placeholder": "Bijv.: 'Abd Allah",
+        "hint": "Als u de naam van de vader van de begunstigde niet kent, volstaat de voor- en achternaam van uw begunstigde inshâ Allah.",
+        "errors": {
+          "minLength": "De naam moet minstens 2 tekens bevatten",
+          "maxLength": "De naam mag niet langer zijn dan 25 tekens"
+        }
+      },
       "gender": {
         "label": "De begunstigde is",
         "options": {
@@ -46,8 +55,8 @@
     "addBeneficiary": "+ Begunstigde toevoegen"
   },
   "quantity": {
-    "title": "Rolstoel voor <span className=\"capitalize font-medium\">{{name}}</span>",
     "wheelchair": {
+      "title": "Rolstoel voor <span className=\"capitalize font-medium\">{{name}}</span>",
       "label": "1 Rolstoel",
       "label_2": "2 Rolstoelen",
       "label_3": "3 Rolstoelen",
@@ -57,6 +66,34 @@
       "description_3": "Vergroot de impact in Mekka met 3 donaties.",
       "errors": {
         "required": "Het aantal rolstoelen is verplicht",
+        "minLength": "Moet minstens 1 zijn"
+      }
+    },
+    "quran": {
+      "title": "Koran voor <span className=\"capitalize font-medium\">{{name}}</span>",
+      "label": "1 Koran",
+      "label_2": "2 Korans",
+      "label_3": "3 Korans",
+      "label_custom": "Aangepaste hoeveelheid",
+      "description": "Op naam van {{name}}",
+      "description_2": "Op naam van {{name}}",
+      "description_3": "Op naam van {{name}}",
+      "errors": {
+        "required": "Het aantal Korans is verplicht",
+        "minLength": "Moet minstens 1 zijn"
+      }
+    },
+    "omra": {
+      "title": "Omra voor <span className=\"capitalize font-medium\">{{name}}</span>",
+      "label": "1 Omra",
+      "label_2": "2 Omra",
+      "label_3": "3 Omra",
+      "label_custom": "Aangepaste hoeveelheid",
+      "description": "Op naam van {{name}}",
+      "description_2": "Op naam van {{name}}",
+      "description_3": "Op naam van {{name}}",
+      "errors": {
+        "required": "Het aantal Omra is verplicht",
         "minLength": "Moet minstens 1 zijn"
       }
     }
@@ -84,10 +121,19 @@
       "proof": "Bewijs van storting ",
       "proofInName": "Bewijs op naam van ",
       "frameTypeMail": "Video via e-mail",
-      "frameTypeQr": "QR-code kader"
+      "frameTypeQr": "QR-code kader",
+      "fatherOmra": "Vader van de begunstigde "
     }
   },
   "recap": {
     "total": "Totaalbedrag van de dienst"
+  },
+  "reassurance": {
+    "title_paiement": "Veilige betaling",
+    "title_livraison": "Snelle levering",
+    "title_satisfaction": "Tevreden of geld terug",
+    "description_paiement": "Je kaartbetalingen (Visa, MasterCard, Amex, enz.) zijn beschermd, we zorgen ervoor dat elke transactie in alle rust plaatsvindt.",
+    "description_livraison": "Ontvang de video die je Sadaqa Jariya bevestigt binnen 10-15 dagen.",
+    "description_satisfaction": "Als je niet volledig tevreden bent met de service, krijg je je geld volledig terug, Bi'idnilah"
   }
 }
