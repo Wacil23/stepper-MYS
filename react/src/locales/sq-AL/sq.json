@@ -6,7 +6,8 @@
     "next": "Tjetër",
     "previous": "I mëparshëm",
     "submit": "Tjetër",
-    "info": "Sadaqa Jariya ju lërë të ofrosh një repas i kënaquës, falas, në emër të përfituesve në këtë muaj të Ramazanit."
+    "infoTitle": "+ Një vakt ofruar në emër të përfituesve",
+    "infoDescription": "Sadaqa Jariya ju lërë të ofrosh një vakt i kënaquës, falas, në emër të përfituesve në këtë muaj të Ramazanit."
   },
   "beneficiaries": {
     "title": "Përfituesi nr. {{number}}",
@@ -62,9 +63,9 @@
       "label_2": "2 Karroca",
       "label_3": "3 Karroca",
       "label_custom": "Sasi e personalizuar",
-      "description": "Ndihmoni shumë pelegrinë të kryejnë ritet e tyre me qetësi.",
-      "description_2": "Dyfishoni shpërblimet për ju dhe të dashurit tuaj.",
-      "description_3": "Shumëfishoni ndikimin në Mekë me 3 depozita.",
+      "description": "+1 vakt ofruar në emër të {{name}}",
+      "description_2": "+2 vakt ofruar në emër të {{name}}",
+      "description_3": "+3 vakt ofruar në emër të {{name}}",
       "errors": {
         "required": "Numri i karrocave është i nevojshëm",
         "minLength": "Duhet të jetë të paktën 1"
@@ -76,9 +77,9 @@
       "label_2": "2 Kur'ane",
       "label_3": "3 Kur'ane",
       "label_custom": "Sasi e personalizuar",
-      "description": "Në emër të {{name}}",
-      "description_2": "Në emër të {{name}}",
-      "description_3": "Në emër të {{name}}",
+      "description": "+1 vakt ofruar në emër të {{name}}",
+      "description_2": "+2 vakt ofruar në emër të {{name}}",
+      "description_3": "+3 vakt ofruar në emër të {{name}}",
       "errors": {
         "required": "Numri i kur'aneve është i nevojshëm",
         "minLength": "Duhet të jetë të paktën 1"
@@ -90,9 +91,9 @@
       "label_2": "2 Umra",
       "label_3": "3 Umra",
       "label_custom": "Sasi e personalizuar",
-      "description": "Në emër të {{name}}",
-      "description_2": "Në emër të {{name}}",
-      "description_3": "Në emër të {{name}}",
+      "description": "+1 vakt ofruar në emër të {{name}}",
+      "description_2": "+2 vakt ofruar në emër të {{name}}",
+      "description_3": "+3 vakt ofruar në emër të {{name}}",
       "errors": {
         "required": "Numri i umrave është i nevojshëm",
         "minLength": "Duhet të jetë të paktën 1"
@@ -129,7 +130,7 @@
   },
   "recap": {
     "total": "Totali i shërbimit",
-    "total_description": "{{number}} Iftar ofruar në emër të {{number}} Palestinës 🇵🇸",
+    "total_description": "{{number}} Vakt ofruar në emër të {{number}} Palestinës 🇵🇸",
     "free": "E pamjaftueshëm"
   },
   "reassurance": {

@@ -6,7 +6,8 @@
     "next": "Suivant",
     "previous": "Précédent",
     "submit": "Suivant",
-    "info": "Votre Sadaqa Jariya permet d'offrir un repas décent, gratuitement aux palestiniens durant ce mois de Ramadan."
+    "infoTitle": "+ Un repas offert à Gaza au nom de vos proches",
+    "infoDescription": "Désormais, votre Sadaqa nourrit aussi Gaza."
   },
   "beneficiaries": {
     "title": "Bénéficiaire n°{{number}}",
@@ -132,7 +133,7 @@
   },
   "recap": {
     "total": "Total du service",
-    "total_description": "{{number}} Iftar offert à {{number}} Palestinien(s) 🇵🇸",
+    "total_description": "{{number}} Repas offert(s) à {{number}} Palestinien(s) 🇵🇸",
     "free": "Gratuit"
   },
   "reassurance": {

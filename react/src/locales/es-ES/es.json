@@ -6,7 +6,8 @@
     "next": "Siguiente",
     "previous": "Anterior",
     "submit": "Siguiente",
-    "info": "Tu Sadaqa Jariya te permite ofrecer una comida equitativa, gratuita a los peregrinos en este mes de Ramadán."
+    "infoTitle": "+ Una comida ofrecida a Gaza para tus seres queridos",
+    "infoDescription": "A partir de ahora, tu Sadaqa también alimentará a Gaza."
   },
   "beneficiaries": {
     "title": "Beneficiario n°{{number}}",
@@ -62,9 +63,10 @@
       "label_2": "2 Sillas de ruedas",
       "label_3": "3 Sillas de ruedas",
       "label_custom": "Cantidad personalizada",
-      "description": "Ayuda a muchos peregrinos a realizar sus ritos con serenidad.",
-      "description_2": "Duplica las recompensas para ti y tus seres queridos.",
-      "description_3": "Multiplica el impacto en Meca con 3 depósitos.",
+      "description": "+1 silla de ruedas ofrecida a 1 peregrino",
+      "description_2": "+2 sillas de ruedas ofrecidas a 2 peregrinos",
+      "description_3": "+3 sillas de ruedas ofrecidas a 3 peregrinos",
+      "description_custom": "+{{number}} sillas de ruedas ofrecidas a {{number}} peregrinos",
       "errors": {
         "required": "El número de sillas de ruedas es obligatorio",
         "minLength": "Debe ser al menos 1"
@@ -76,9 +78,10 @@
       "label_2": "2 Coranes",
       "label_3": "3 Coranes",
       "label_custom": "Cantidad personalizada",
-      "description": "En nombre de {{name}}",
-      "description_2": "En nombre de {{name}}",
-      "description_3": "En nombre de {{name}}",
+      "description": "+1 comida ofrecida a 1 palestino",
+      "description_2": "+2 comidas ofrecidas a 2 palestinos",
+      "description_3": "+3 comidas ofrecidas a 3 palestinos",
+      "description_custom": "+{{number}} comidas ofrecidas a {{number}} palestinos",
       "errors": {
         "required": "El número de coranes es obligatorio",
         "minLength": "Debe ser al menos 1"
@@ -90,9 +93,10 @@
       "label_2": "2 Omras",
       "label_3": "3 Omras",
       "label_custom": "Cantidad personalizada",
-      "description": "En nombre de {{name}}",
-      "description_2": "En nombre de {{name}}",
-      "description_3": "En nombre de {{name}}",
+      "description": "+1 comida ofrecida a 1 palestino",
+      "description_2": "+2 comidas ofrecidas a 2 palestinos",
+      "description_3": "+3 comidas ofrecidas a 3 palestinos",
+      "description_custom": "+{{number}} comidas ofrecidas a {{number}} palestinos",
       "errors": {
         "required": "El número de omras es obligatorio",
         "minLength": "Debe ser al menos 1"
@@ -129,7 +133,7 @@
   },
   "recap": {
     "total": "Total del servicio",
-    "total_description": "{{number}} Comida ofrecida a {{number}} Palestinos 🇵🇸",
+    "total_description": "{{number}} Comida(s) ofrecida(s) a {{number}} Palestinos 🇵🇸",
     "free": "Gratis"
   },
   "reassurance": {

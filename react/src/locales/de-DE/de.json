@@ -6,7 +6,8 @@
     "next": "Weiter",
     "previous": "Zurück",
     "submit": "Einreichen",
-    "info": "Ihre Sadaqa Jariya ermöglicht es Ihnen, eine faire, kostenlose Mahlzeit für Pilger in diesem Monat von Ramadan zu spenden."
+    "infoTitle": "+ Eine Mahlzeit in Gaza für Ihre Angehörigen",
+    "infoDescription": "Von nun an ernährt Ihre Sadaqa auch Gaza."
   },
   "beneficiaries": {
     "title": "Begünstigter Nr. {{number}}",
@@ -62,9 +63,10 @@
       "label_2": "2 Rollstühle",
       "label_3": "3 Rollstühle",
       "label_custom": "Benutzerdefinierte Menge",
-      "description": "Helfen Sie vielen Pilgern, ihre Rituale in Ruhe zu vollziehen.",
-      "description_2": "Verdoppeln Sie die Belohnungen für sich und Ihre Angehörigen.",
-      "description_3": "Vergrößern Sie die Wirkung in Mekka mit 3 Spenden.",
+      "description": "+1 Mahlzeit für 1 Palästinenser gespendet",
+      "description_2": "+2 Mahlzeiten für 2 Palästinenser gespendet",
+      "description_3": "+3 Mahlzeiten für 3 Palästinenser gespendet",
+      "description_custom": "+{{number}} Mahlzeiten für {{number}} Palästinenser gespendet",
       "errors": {
         "required": "Die Anzahl der Rollstühle ist erforderlich",
         "minLength": "Mindestens 1 erforderlich"
@@ -76,9 +78,10 @@
       "label_2": "2 Korane",
       "label_3": "3 Korane",
       "label_custom": "Benutzerdefinierte Menge",
-      "description": "Im Namen von {{name}}",
-      "description_2": "Im Namen von {{name}}",
-      "description_3": "Im Namen von {{name}}",
+      "description": "+1 Mahlzeit für 1 Palästinenser gespendet",
+      "description_2": "+2 Mahlzeiten für 2 Palästinenser gespendet",
+      "description_3": "+3 Mahlzeiten für 3 Palästinenser gespendet",
+      "description_custom": "+{{number}} Mahlzeiten für {{number}} Palästinenser gespendet",
       "errors": {
         "required": "Die Anzahl der Korane ist erforderlich",
         "minLength": "Mindestens 1 erforderlich"
@@ -90,9 +93,10 @@
       "label_2": "2 Umrah",
       "label_3": "3 Umrah",
       "label_custom": "Benutzerdefinierte Menge",
-      "description": "Im Namen von {{name}}",
-      "description_2": "Im Namen von {{name}}",
-      "description_3": "Im Namen von {{name}}",
+      "description": "+1 Mahlzeit für 1 Palästinenser gespendet",
+      "description_2": "+2 Mahlzeiten für 2 Palästinenser gespendet",
+      "description_3": "+3 Mahlzeiten für 3 Palästinenser gespendet",
+      "description_custom": "+{{number}} Mahlzeiten für {{number}} Palästinenser gespendet",
       "errors": {
         "required": "Die Anzahl der Umrah ist erforderlich",
         "minLength": "Mindestens 1 erforderlich"
@@ -124,12 +128,12 @@
       "frameTypeMail": "Video per E-Mail",
       "frameTypeQr": "QR-Code-Rahmen",
       "fatherOmra": "Vater des Begünstigten ",
-      "iftar": "Iftar angeboten an "
+      "iftar": "Mahlzeit angeboten an "
     }
   },
   "recap": {
     "total": "Gesamtbetrag des Services",
-    "total_description": "{{number}} Iftar angeboten an {{number}} Palästinenser 🇵🇸",
+    "total_description": "{{number}} Mahlzeit angeboten an {{number}} Palästinenser 🇵🇸",
     "free": "Kostenlos"
   },
   "reassurance": {

@@ -6,7 +6,8 @@
     "next": "Avanti",
     "previous": "Indietro",
     "submit": "Invia",
-    "info": "La tua Sadaqa Jariya ti permette di offrire un pasto decente, gratuito ai pellegrini in questo mese di Ramadan."
+    "infoTitle": "+ Un pasto offert a Gaza per i tuoi cari",
+    "infoDescription": "D'ora in poi, la vostra Sadaqa alimenterà anche Gaza."
   },
   "beneficiaries": {
     "title": "Beneficiario n°{{number}}",
@@ -62,9 +63,10 @@
       "label_2": "2 Sedie a rotelle",
       "label_3": "3 Sedie a rotelle",
       "label_custom": "Quantità personalizzata",
-      "description": "Aiuta numerosi pellegrini a compiere i loro riti in serenità.",
-      "description_2": "Raddoppia le ricompense per te e i tuoi cari.",
-      "description_3": "Moltiplica l'impatto a La Mecca con 3 depositi.",
+      "description": "+1 pasto offerta a 1 pellegrino",
+      "description_2": "+2 pasti offerti a 2 pellegrini",
+      "description_3": "+3 pasti offerti a 3 pellegrini",
+      "description_custom": "+{{number}} pasti offerti a {{number}} pellegrini",
       "errors": {
         "required": "Il numero di sedie a rotelle è obbligatorio",
         "minLength": "Deve essere almeno 1"
@@ -76,9 +78,10 @@
       "label_2": "2 Corani",
       "label_3": "3 Corani",
       "label_custom": "Quantità personalizzata",
-      "description": "A nome di {{name}}",
-      "description_2": "A nome di {{name}}",
-      "description_3": "A nome di {{name}}",
+      "description": "+1 pasto offerta a 1 pellegrino",
+      "description_2": "+2 pasti offerti a 2 pellegrini",
+      "description_3": "+3 pasti offerti a 3 pellegrini",
+      "description_custom": "+{{number}} pasti offerti a {{number}} pellegrini",
       "errors": {
         "required": "Il numero di Corani è obbligatorio",
         "minLength": "Deve essere almeno 1"
@@ -90,9 +93,10 @@
       "label_2": "2 Umrah",
       "label_3": "3 Umrah",
       "label_custom": "Quantità personalizzata",
-      "description": "A nome di {{name}}",
-      "description_2": "A nome di {{name}}",
-      "description_3": "A nome di {{name}}",
+      "description": "+1 pasto offerta a 1 pellegrino",
+      "description_2": "+2 pasti offerti a 2 pellegrini",
+      "description_3": "+3 pasti offerti a 3 pellegrini",
+      "description_custom": "+{{number}} pasti offerti a {{number}} pellegrini",
       "errors": {
         "required": "Il numero di Umrah è obbligatorio",
         "minLength": "Deve essere almeno 1"
@@ -129,7 +133,7 @@
   },
   "recap": {
     "total": "Totale del servizio",
-    "total_description": "{{number}} Pasto offerto a {{number}} Palestini 🇵🇸",
+    "total_description": "{{number}} Pasto/i offerto/i a {{number}} Palestini 🇵🇸",
     "free": "Gratuito"
   },
   "reassurance": {

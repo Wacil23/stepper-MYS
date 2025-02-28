@@ -6,7 +6,8 @@
     "next": "Suivant",
     "previous": "Précédent",
     "submit": "Suivant",
-    "info": "Votre Sadaqa Jariya vous permet de donner un repas décent, gratuitement aux pèlerins en ce mois de Ramadan."
+    "infoTitle": "+ Un repas offert à Gaza pour vos proches",
+    "infoDescription": "Désormais, votre Sadaqa nourrit aussi Gaza."
   },
   "beneficiaries": {
     "title": "Bénéficiaire n°{{number}}",
@@ -62,9 +63,10 @@
       "label_2": "2 Fauteuils",
       "label_3": "3 Fauteuils",
       "label_custom": "Quantité personnalisée",
-      "description": "Aidez de nombreux pèlerins à accomplir leurs rites en toute sérénité.",
-      "description_2": "Doublez les hassanates pour vous et vos proches.",
-      "description_3": "Multipliez l'impact au sein de Makkah avec 3 dépôts.",
+      "description": "+1 repas offert à 1 Palestinien",
+      "description_2": "+2 repas offerts à 2 Palestiniens",
+      "description_3": "+3 repas offerts à 3 Palestiniens",
+      "description_custom": "+{{number}} repas offerts à {{number}} Palestiniens",
       "errors": {
         "required": "Le nombre de fauteuil roulant est requis",
         "minLength": "Doit être au moins 1"
@@ -76,9 +78,10 @@
       "label_2": "2 Corans",
       "label_3": "3 Corans",
       "label_custom": "Quantité personnalisée",
-      "description": "Au nom de {{name}}",
-      "description_2": "Au nom de {{name}}",
-      "description_3": "Au nom de {{name}}",
+      "description": "+1 repas offert à 1 Palestinien",
+      "description_2": "+2 repas offerts à 2 Palestiniens",
+      "description_3": "+3 repas offerts à 3 Palestiniens",
+      "description_custom": "+{{number}} repas offerts à {{number}} Palestiniens",
       "errors": {
         "required": "Le nombre de coran est requis",
         "minLength": "Doit être au moins 1"
@@ -90,9 +93,10 @@
       "label_2": "2 Omra",
       "label_3": "3 Omra",
       "label_custom": "Quantité personnalisée",
-      "description": "Au nom de {{name}}",
-      "description_2": "Au nom de {{name}}",
-      "description_3": "Au nom de {{name}}",
+      "description": "+1 repas offert à 1 Palestinien",
+      "description_2": "+2 repas offerts à 2 Palestiniens",
+      "description_3": "+3 repas offerts à 3 Palestiniens",
+      "description_custom": "+{{number}} repas offerts à {{number}} Palestiniens",
       "errors": {
         "required": "Le nombre de omra est requis",
         "minLength": "Doit être au moins 1"
@@ -136,8 +140,8 @@
     "title_paiement": "Paiement sécurisé",
     "title_livraison": "Preuve Rapide",
     "title_satisfaction": "Satisfait ou remboursé",
-    "description_paiement": "Vos paiements par carte (Visa, MasterCard, Amex, etc.) sont protégés, nous veillons à ce que chaque transaction s’effectue en toute quiétude.",
+    "description_paiement": "Vos paiements par carte (Visa, MasterCard, Amex, etc.) sont protégés, nous veillons à ce que chaque transaction s'effectue en toute quiétude.",
     "description_livraison": "Recevez la vidéo attestant de votre Sadaqa Jariya dans un délai de 10 à 15 jours.",
-    "description_satisfaction": "Si vous n’êtes pas pleinement satisfait du service, vous serez remboursés intégralement, Bi’idnilah"
+    "description_satisfaction": "Si vous n'êtes pas pleinement satisfait du service, vous serez remboursés intégralement, Bi'idnilah"
   }
 }

@@ -519,12 +519,17 @@ const Stepper = () => {
         })}
       </div>
       <div className="my-7">
-        <div className="p-4 border-l-red-500 border-r-black border-t-black border-b-green-800 border-2 rounded-xl flex items-start lg:items-center gap-4">
+        <div className="p-4 border-l-red-500 border-r-black border-t-black border-b-green-800 border-2 rounded-xl flex items-center gap-[14px]">
           <img
             src="https://cdn.shopify.com/s/files/1/0793/7412/3350/files/iconpalestine.svg?v=1740573459"
-            width={20}
+            width={25}
           />
-          <p className="text-xs text-pretty">{t("steps.info")}</p>
+          <div className="flex flex-col gap-1 ">
+            <p className="text-base text-pretty text-start font-semibold">
+              {t("steps.infoTitle")}
+            </p>
+            <p className="text-xs text-pretty">{t("steps.infoDescription")}</p>
+          </div>
         </div>
       </div>
       <div>{steps.find((step) => step.number === currentStep)?.component}</div>

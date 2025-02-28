@@ -6,7 +6,8 @@
     "next": "Volgende",
     "previous": "Vorige",
     "submit": "Indienen",
-    "info": "Uw Sadaqa Jariya stelt u in staat om een eerlijk, gratis maaltijd aan pelgrims te offeren in deze maand van Ramadan."
+    "infoTitle": "+ Een maaltijd aangeboden aan Gaza namens je dierbaren",
+    "infoDescription": "Vanaf nu zal jouw Sadaqa ook Gaza voeden."
   },
   "beneficiaries": {
     "title": "Begunstigde nr. {{number}}",
@@ -62,9 +63,9 @@
       "label_2": "2 Rolstoelen",
       "label_3": "3 Rolstoelen",
       "label_custom": "Aangepaste hoeveelheid",
-      "description": "Help veel pelgrims hun rituelen in alle rust te volbrengen.",
-      "description_2": "Verdubbel de beloningen voor jezelf en je dierbaren.",
-      "description_3": "Vergroot de impact in Mekka met 3 donaties.",
+      "description": "+1 maaltijd voor {{name}}",
+      "description_2": "+2 maaltijd voor {{name}}",
+      "description_3": "+3 maaltijd voor {{name}}",
       "errors": {
         "required": "Het aantal rolstoelen is verplicht",
         "minLength": "Moet minstens 1 zijn"
@@ -76,9 +77,9 @@
       "label_2": "2 Korans",
       "label_3": "3 Korans",
       "label_custom": "Aangepaste hoeveelheid",
-      "description": "Op naam van {{name}}",
-      "description_2": "Op naam van {{name}}",
-      "description_3": "Op naam van {{name}}",
+      "description": "+1 maaltijd voor {{name}}",
+      "description_2": "+2 maaltijd voor {{name}}",
+      "description_3": "+3 maaltijd voor {{name}}",
       "errors": {
         "required": "Het aantal Korans is verplicht",
         "minLength": "Moet minstens 1 zijn"
@@ -90,9 +91,9 @@
       "label_2": "2 Omra",
       "label_3": "3 Omra",
       "label_custom": "Aangepaste hoeveelheid",
-      "description": "Op naam van {{name}}",
-      "description_2": "Op naam van {{name}}",
-      "description_3": "Op naam van {{name}}",
+      "description": "+1 maaltijd voor {{name}}",
+      "description_2": "+2 maaltijd voor {{name}}",
+      "description_3": "+3 maaltijd voor {{name}}",
       "errors": {
         "required": "Het aantal Omra is verplicht",
         "minLength": "Moet minstens 1 zijn"

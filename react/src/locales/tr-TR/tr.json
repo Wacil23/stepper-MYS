@@ -6,7 +6,8 @@
     "next": "Sonraki",
     "previous": "Önceki",
     "submit": "Sonraki",
-    "info": "Sadaqa Jariya, Ramazan ayında pelgrimsler için adil, ücretsiz bir maaltı sunar."
+    "infoTitle": "Sevdikleriniz adına Gazze'ye sunulan + yemek",
+    "infoDescription": "Bundan böyle sadakalarınız Gazze'yi de besleyecek."
   },
   "beneficiaries": {
     "title": "Faydalanıcı No {{number}}",
