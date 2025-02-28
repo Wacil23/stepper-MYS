@@ -1,0 +1,143 @@
+{
+  "steps": {
+    "stepOne": "Faydalanıcılar",
+    "stepTwo": "Miktar",
+    "stepThree": "Depozito Kanıtı",
+    "next": "Sonraki",
+    "previous": "Önceki",
+    "submit": "Sonraki",
+    "info": "Sadaqa Jariya, Ramazan ayında pelgrimsler için adil, ücretsiz bir maaltı sunar."
+  },
+  "beneficiaries": {
+    "title": "Faydalanıcı No {{number}}",
+    "fields": {
+      "name": {
+        "label": "Ad + soyad",
+        "placeholder": "Örn: Muhammad Al Muni",
+        "errors": {
+          "required": "Ad gereklidir",
+          "minLength": "Ad en az 2 karakter olmalıdır",
+          "maxLength": "Ad 25 karakteri geçemez"
+        }
+      },
+      "fatherName": {
+        "label": "Faydalanıcının Babası",
+        "placeholder": "Örn: 'Abd Allah",
+        "hint": "Faydalanıcının babasının adını bilmiyorsanız, faydalanıcınızın adı ve soyadı yeterli olacaktır inşâAllah.",
+        "errors": {
+          "minLength": "Ad en az 2 karakter olmalıdır",
+          "maxLength": "Ad 25 karakteri geçemez"
+        }
+      },
+      "gender": {
+        "label": "Faydalanıcı",
+        "options": {
+          "male": "Erkek",
+          "aMale": "Bir erkek",
+          "female": "Kadın",
+          "aFemale": "Bir kadın"
+        },
+        "errors": {
+          "required": "Cinsiyet gereklidir"
+        }
+      },
+      "status": {
+        "label": "Ölü veya hasta mı?",
+        "options": {
+          "deceased": "Ölü",
+          "sick": "Hasta",
+          "none": "Hayır"
+        },
+        "errors": {
+          "required": "Durum gereklidir"
+        }
+      }
+    },
+    "addBeneficiary": "+ Faydalanıcı ekle"
+  },
+  "quantity": {
+    "wheelchair": {
+      "title": "<span className=\"capitalize font-medium\">{{name}}</span> için Tekerlekli Sandalye",
+      "label": "1 Tekerlekli Sandalye",
+      "label_2": "2 Tekerlekli Sandalye",
+      "label_3": "3 Tekerlekli Sandalye",
+      "label_custom": "Özel Miktar",
+      "description": "Birçok hacının ibadetlerini huzur içinde yapmasına yardımcı olun.",
+      "description_2": "Kendiniz ve sevdikleriniz için sevapları ikiye katlayın.",
+      "description_3": "Mekke'de 3 depo ile etkiyi artırın.",
+      "errors": {
+        "required": "Tekerlekli sandalye sayısı gereklidir",
+        "minLength": "En az 1 olmalıdır"
+      }
+    },
+    "quran": {
+      "title": "<span className=\"capitalize font-medium\">{{name}}</span> için Kur'an",
+      "label": "1 Kur'an",
+      "label_2": "2 Kur'an",
+      "label_3": "3 Kur'an",
+      "label_custom": "Özel Miktar",
+      "description": "{{name}} adına",
+      "description_2": "{{name}} adına",
+      "description_3": "{{name}} adına",
+      "errors": {
+        "required": "Kur'an sayısı gereklidir",
+        "minLength": "En az 1 olmalıdır"
+      }
+    },
+    "omra": {
+      "title": "<span className=\"capitalize font-medium\">{{name}}</span> için Umre",
+      "label": "1 Umre",
+      "label_2": "2 Umre",
+      "label_3": "3 Umre",
+      "label_custom": "Özel Miktar",
+      "description": "{{name}} adına",
+      "description_2": "{{name}} adına",
+      "description_3": "{{name}} adına",
+      "errors": {
+        "required": "Umre sayısı gereklidir",
+        "minLength": "En az 1 olmalıdır"
+      }
+    }
+  },
+  "frame": {
+    "title": "<span className=\"capitalize font-medium\">{{name}}</span> için Depozito Kanıtı",
+    "frameType": {
+      "mail": "E-posta ile",
+      "qr": "QR kod ile",
+      "description": "",
+      "description_mail": "",
+      "description_qr": "Depozito videosunu izlemek için evinize bir QR kod çerçevesi alın.",
+      "price_mail": "Ücretsiz",
+      "price_qr": "",
+      "errors": {
+        "required": "Çerçeve türü gereklidir"
+      }
+    }
+  },
+  "checkout": {
+    "attributes": {
+      "gender": "Cinsiyet ",
+      "status": "Durum ",
+      "name": "Adına ",
+      "proof": "Depozito Kanıtı ",
+      "proofInName": "Adına Kanıt ",
+      "frameTypeMail": "E-posta ile video",
+      "frameTypeQr": "QR kod çerçevesi",
+      "fatherOmra": "Faydalanıcının Babası ",
+      "iftar": "Iftar teklif edildi "
+    }
+  },
+  "recap": {
+    "total": "Hizmetin Toplamı",
+    "total_description": "{{number}} Iftar teklif edildi {{number}} Palestyenler 🇵🇸",
+    "free": "Ücretsiz"
+  },
+  "reassurance": {
+    "title_paiement": "Güvenli ödeme",
+    "title_livraison": "Hızlı teslimat",
+    "title_satisfaction": "Memnuniyet veya para iadesi",
+    "description_paiement": "Kart ödemeleriniz (Visa, MasterCard, Amex, vb.) korunmaktadır, her işlemin huzur içinde gerçekleşmesini sağlıyoruz.",
+    "description_livraison": "Sadaqa Jariya'nızı onaylayan videoyu 10-15 gün içinde alın.",
+    "description_satisfaction": "Hizmetten tamamen memnun kalmazsanız, paranız tamamen iade edilecektir, Bi'idnilah"
+  }
+}

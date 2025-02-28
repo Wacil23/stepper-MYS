@@ -1,0 +1,143 @@
+{
+  "steps": {
+    "stepOne": "Бенефициенти",
+    "stepTwo": "Количество",
+    "stepThree": "Доказателство за депозит",
+    "next": "Следващ",
+    "previous": "Предишен",
+    "submit": "Следващ",
+    "info": "Вашата Sadaqa Jariya ви позволява да дадете справедлива, безплатна вечеря на pelegrините в този месец на Рамадан."
+  },
+  "beneficiaries": {
+    "title": "Бенефициент №{{number}}",
+    "fields": {
+      "name": {
+        "label": "Име + фамилия",
+        "placeholder": "Пример: Muhammad Al Muni",
+        "errors": {
+          "required": "Името е задължително",
+          "minLength": "Името трябва да съдържа поне 2 символа",
+          "maxLength": "Името не може да надвишава 25 символа"
+        }
+      },
+      "fatherName": {
+        "label": "Баща на бенефициента",
+        "placeholder": "Пример: 'Abd Allah",
+        "hint": "Ако не знаете името на бащата на бенефициента, името и фамилията на вашия бенефициент ще бъдат достатъчни, иншаллах.",
+        "errors": {
+          "minLength": "Името трябва да съдържа поне 2 символа",
+          "maxLength": "Името не може да надвишава 25 символа"
+        }
+      },
+      "gender": {
+        "label": "Бенефициентът е",
+        "options": {
+          "male": "Мъж",
+          "aMale": "Един мъж",
+          "female": "Жена",
+          "aFemale": "Една жена"
+        },
+        "errors": {
+          "required": "Полът е задължителен"
+        }
+      },
+      "status": {
+        "label": "Починал или болен?",
+        "options": {
+          "deceased": "Починал(а)",
+          "sick": "Болен",
+          "none": "Не"
+        },
+        "errors": {
+          "required": "Статусът е задължителен"
+        }
+      }
+    },
+    "addBeneficiary": "+ Добавяне на бенефициент"
+  },
+  "quantity": {
+    "wheelchair": {
+      "title": "Инвалидна количка за <span className=\"capitalize font-medium\">{{name}}</span>",
+      "label": "1 Инвалидна количка",
+      "label_2": "2 Инвалидни колички",
+      "label_3": "3 Инвалидни колички",
+      "label_custom": "Персонализирано количество",
+      "description": "Помогнете на много поклонници да извършат ритуалите си със спокойствие.",
+      "description_2": "Удвоете наградите за вас и вашите близки.",
+      "description_3": "Умножете въздействието в Мека с 3 депозита.",
+      "errors": {
+        "required": "Броят на инвалидните колички е задължителен",
+        "minLength": "Трябва да бъде поне 1"
+      }
+    },
+    "quran": {
+      "title": "Коран за <span className=\"capitalize font-medium\">{{name}}</span>",
+      "label": "1 Коран",
+      "label_2": "2 Корана",
+      "label_3": "3 Корана",
+      "label_custom": "Персонализирано количество",
+      "description": "В името на {{name}}",
+      "description_2": "В името на {{name}}",
+      "description_3": "В името на {{name}}",
+      "errors": {
+        "required": "Броят на кораните е задължителен",
+        "minLength": "Трябва да бъде поне 1"
+      }
+    },
+    "omra": {
+      "title": "Умра за <span className=\"capitalize font-medium\">{{name}}</span>",
+      "label": "1 Умра",
+      "label_2": "2 Умри",
+      "label_3": "3 Умри",
+      "label_custom": "Персонализирано количество",
+      "description": "В името на {{name}}",
+      "description_2": "В името на {{name}}",
+      "description_3": "В името на {{name}}",
+      "errors": {
+        "required": "Броят на умрите е задължителен",
+        "minLength": "Трябва да бъде поне 1"
+      }
+    }
+  },
+  "frame": {
+    "title": "Доказателство за депозит за <span className=\"capitalize font-medium\">{{name}}</span>",
+    "frameType": {
+      "mail": "По имейл",
+      "qr": "С QR код",
+      "description": "",
+      "description_mail": "",
+      "description_qr": "Получете у дома рамка с QR код, за да гледате видеото на депозита.",
+      "price_mail": "Безплатно",
+      "price_qr": "",
+      "errors": {
+        "required": "Типът на рамката е задължителен"
+      }
+    }
+  },
+  "checkout": {
+    "attributes": {
+      "gender": "Пол ",
+      "status": "Статус ",
+      "name": "В името на ",
+      "proof": "Доказателство за депозит ",
+      "proofInName": "Доказателство в името на ",
+      "frameTypeMail": "Видео по имейл",
+      "frameTypeQr": "Рамка с QR код",
+      "fatherOmra": "Баща на бенефициента ",
+      "iftar": "Iftar предложен на "
+    }
+  },
+  "recap": {
+    "total": "Обща стойност на услугата",
+    "total_description": "{{number}} Iftar предложени на {{number}} Палестински",
+    "free": "Безплатно"
+  },
+  "reassurance": {
+    "title_paiement": "Сигурно плащане",
+    "title_livraison": "Бърза доставка",
+    "title_satisfaction": "Доволен или възстановен",
+    "description_paiement": "Вашите плащания с карта (Visa, MasterCard, Amex и др.) са защитени, ние гарантираме, че всяка транзакция се извършва с пълно спокойствие.",
+    "description_livraison": "Получете видеото, което удостоверява вашата Садака Джария в рамките на 10-15 дни.",
+    "description_satisfaction": "Ако не сте напълно доволни от услугата, ще ви бъде възстановена пълната сума, Bi'idnilah"
+  }
+}

@@ -5,7 +5,8 @@
     "stepThree": "Einzahlungsnachweis",
     "next": "Weiter",
     "previous": "Zurück",
-    "submit": "Einreichen"
+    "submit": "Einreichen",
+    "info": "Ihre Sadaqa Jariya ermöglicht es Ihnen, eine faire, kostenlose Mahlzeit für Pilger in diesem Monat von Ramadan zu spenden."
   },
   "beneficiaries": {
     "title": "Begünstigter Nr. {{number}}",
@@ -15,6 +16,15 @@
         "placeholder": "z.B.: Muhammad Al Muni",
         "errors": {
           "required": "Der Name ist erforderlich",
+          "minLength": "Der Name muss mindestens 2 Zeichen lang sein",
+          "maxLength": "Der Name darf nicht länger als 25 Zeichen sein"
+        }
+      },
+      "fatherName": {
+        "label": "Vater des Begünstigten",
+        "placeholder": "z.B.: 'Abd Allah",
+        "hint": "Falls Sie den Namen des Vaters des Begünstigten nicht kennen, reichen der Vor- und Nachname des Begünstigten inshâ Allah aus.",
+        "errors": {
           "minLength": "Der Name muss mindestens 2 Zeichen lang sein",
           "maxLength": "Der Name darf nicht länger als 25 Zeichen sein"
         }
@@ -46,8 +56,8 @@
     "addBeneficiary": "+ Begünstigten hinzufügen"
   },
   "quantity": {
-    "title": "Rollstuhl für <span className=\"capitalize font-medium\">{{name}}</span>",
     "wheelchair": {
+      "title": "Rollstuhl für <span className=\"capitalize font-medium\">{{name}}</span>",
       "label": "1 Rollstuhl",
       "label_2": "2 Rollstühle",
       "label_3": "3 Rollstühle",
@@ -57,6 +67,34 @@
       "description_3": "Vergrößern Sie die Wirkung in Mekka mit 3 Spenden.",
       "errors": {
         "required": "Die Anzahl der Rollstühle ist erforderlich",
+        "minLength": "Mindestens 1 erforderlich"
+      }
+    },
+    "quran": {
+      "title": "Koran für <span className=\"capitalize font-medium\">{{name}}</span>",
+      "label": "1 Koran",
+      "label_2": "2 Korane",
+      "label_3": "3 Korane",
+      "label_custom": "Benutzerdefinierte Menge",
+      "description": "Im Namen von {{name}}",
+      "description_2": "Im Namen von {{name}}",
+      "description_3": "Im Namen von {{name}}",
+      "errors": {
+        "required": "Die Anzahl der Korane ist erforderlich",
+        "minLength": "Mindestens 1 erforderlich"
+      }
+    },
+    "omra": {
+      "title": "Umrah für <span className=\"capitalize font-medium\">{{name}}</span>",
+      "label": "1 Umrah",
+      "label_2": "2 Umrah",
+      "label_3": "3 Umrah",
+      "label_custom": "Benutzerdefinierte Menge",
+      "description": "Im Namen von {{name}}",
+      "description_2": "Im Namen von {{name}}",
+      "description_3": "Im Namen von {{name}}",
+      "errors": {
+        "required": "Die Anzahl der Umrah ist erforderlich",
         "minLength": "Mindestens 1 erforderlich"
       }
     }
@@ -84,10 +122,22 @@
       "proof": "Einzahlungsnachweis ",
       "proofInName": "Nachweis im Namen von ",
       "frameTypeMail": "Video per E-Mail",
-      "frameTypeQr": "QR-Code-Rahmen"
+      "frameTypeQr": "QR-Code-Rahmen",
+      "fatherOmra": "Vater des Begünstigten ",
+      "iftar": "Iftar angeboten an "
     }
   },
   "recap": {
-    "total": "Gesamtbetrag des Services"
+    "total": "Gesamtbetrag des Services",
+    "total_description": "{{number}} Iftar angeboten an {{number}} Palästinenser 🇵🇸",
+    "free": "Kostenlos"
+  },
+  "reassurance": {
+    "title_paiement": "Sichere Zahlung",
+    "title_livraison": "Schnelle Lieferung",
+    "title_satisfaction": "Zufrieden oder Geld zurück",
+    "description_paiement": "Ihre Kartenzahlungen (Visa, MasterCard, Amex, etc.) sind geschützt, wir sorgen dafür, dass jede Transaktion in aller Ruhe erfolgt.",
+    "description_livraison": "Erhalten Sie das Video, das Ihre Sadaqa Jariya innerhalb von 10-15 Tagen bestätigt.",
+    "description_satisfaction": "Wenn Sie mit dem Service nicht vollständig zufrieden sind, erhalten Sie Ihr Geld vollständig zurück, Bi'idnilah"
   }
 }

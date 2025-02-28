@@ -1,0 +1,143 @@
+{
+  "steps": {
+    "stepOne": "Përfituesit",
+    "stepTwo": "Sasia",
+    "stepThree": "Dëshmia e depozitës",
+    "next": "Tjetër",
+    "previous": "I mëparshëm",
+    "submit": "Tjetër",
+    "info": "Sadaqa Jariya ju lërë të ofrosh një repas i kënaquës, falas, në emër të përfituesve në këtë muaj të Ramazanit."
+  },
+  "beneficiaries": {
+    "title": "Përfituesi nr. {{number}}",
+    "fields": {
+      "name": {
+        "label": "Emri + mbiemri",
+        "placeholder": "P.sh.: Muhammad Al Muni",
+        "errors": {
+          "required": "Emri është i nevojshëm",
+          "minLength": "Emri duhet të ketë të paktën 2 karaktere",
+          "maxLength": "Emri nuk mund të kalojë 25 karaktere"
+        }
+      },
+      "fatherName": {
+        "label": "Babai i përfituesit",
+        "placeholder": "P.sh.: 'Abd Allah",
+        "hint": "Nëse nuk e dini emrin e babait të përfituesit, emri dhe mbiemri i përfituesit tuaj do të jenë të mjaftueshme inshâ Allah.",
+        "errors": {
+          "minLength": "Emri duhet të ketë të paktën 2 karaktere",
+          "maxLength": "Emri nuk mund të kalojë 25 karaktere"
+        }
+      },
+      "gender": {
+        "label": "Përfituesi është",
+        "options": {
+          "male": "Mashkull",
+          "aMale": "Një mashkull",
+          "female": "Femër",
+          "aFemale": "Një femër"
+        },
+        "errors": {
+          "required": "Gjinia është e nevojshme"
+        }
+      },
+      "status": {
+        "label": "I vdekur apo i sëmurë?",
+        "options": {
+          "deceased": "I vdekur",
+          "sick": "I sëmurë",
+          "none": "Jo"
+        },
+        "errors": {
+          "required": "Statusi është i nevojshëm"
+        }
+      }
+    },
+    "addBeneficiary": "+ Shto një përfitues"
+  },
+  "quantity": {
+    "wheelchair": {
+      "title": "Karrocë për <span className=\"capitalize font-medium\">{{name}}</span>",
+      "label": "1 Karrocë",
+      "label_2": "2 Karroca",
+      "label_3": "3 Karroca",
+      "label_custom": "Sasi e personalizuar",
+      "description": "Ndihmoni shumë pelegrinë të kryejnë ritet e tyre me qetësi.",
+      "description_2": "Dyfishoni shpërblimet për ju dhe të dashurit tuaj.",
+      "description_3": "Shumëfishoni ndikimin në Mekë me 3 depozita.",
+      "errors": {
+        "required": "Numri i karrocave është i nevojshëm",
+        "minLength": "Duhet të jetë të paktën 1"
+      }
+    },
+    "quran": {
+      "title": "Kur'an për <span className=\"capitalize font-medium\">{{name}}</span>",
+      "label": "1 Kur'an",
+      "label_2": "2 Kur'ane",
+      "label_3": "3 Kur'ane",
+      "label_custom": "Sasi e personalizuar",
+      "description": "Në emër të {{name}}",
+      "description_2": "Në emër të {{name}}",
+      "description_3": "Në emër të {{name}}",
+      "errors": {
+        "required": "Numri i kur'aneve është i nevojshëm",
+        "minLength": "Duhet të jetë të paktën 1"
+      }
+    },
+    "omra": {
+      "title": "Umra për <span className=\"capitalize font-medium\">{{name}}</span>",
+      "label": "1 Umra",
+      "label_2": "2 Umra",
+      "label_3": "3 Umra",
+      "label_custom": "Sasi e personalizuar",
+      "description": "Në emër të {{name}}",
+      "description_2": "Në emër të {{name}}",
+      "description_3": "Në emër të {{name}}",
+      "errors": {
+        "required": "Numri i umrave është i nevojshëm",
+        "minLength": "Duhet të jetë të paktën 1"
+      }
+    }
+  },
+  "frame": {
+    "title": "Dëshmia e depozitës për <span className=\"capitalize font-medium\">{{name}}</span>",
+    "frameType": {
+      "mail": "Me email",
+      "qr": "Me kod QR",
+      "description": "",
+      "description_mail": "",
+      "description_qr": "Merrni në shtëpi një kornizë me kod QR për të parë videon e depozitës.",
+      "price_mail": "Falas",
+      "price_qr": "",
+      "errors": {
+        "required": "Lloji i kornizës është i nevojshëm"
+      }
+    }
+  },
+  "checkout": {
+    "attributes": {
+      "gender": "Gjinia ",
+      "status": "Statusi ",
+      "name": "Në emër të ",
+      "proof": "Dëshmia e depozitës ",
+      "proofInName": "Dëshmia në emër të ",
+      "frameTypeMail": "Video me email",
+      "frameTypeQr": "Kornizë me kod QR",
+      "fatherOmra": "Babai i përfituesit ",
+      "iftar": "Vakt i ofruar në emër të "
+    }
+  },
+  "recap": {
+    "total": "Totali i shërbimit",
+    "total_description": "{{number}} Iftar ofruar në emër të {{number}} Palestinës 🇵🇸",
+    "free": "E pamjaftueshëm"
+  },
+  "reassurance": {
+    "title_paiement": "Pagesë e sigurt",
+    "title_livraison": "Dorëzim i shpejtë",
+    "title_satisfaction": "I kënaqur ose i rimbursuar",
+    "description_paiement": "Pagesat tuaja me kartë (Visa, MasterCard, Amex, etj.) janë të mbrojtura, ne sigurohemi që çdo transaksion të kryhet me qetësi të plotë.",
+    "description_livraison": "Merrni videon që vërteton Sadaqa Jariya tuaj brenda 10-15 ditësh.",
+    "description_satisfaction": "Nëse nuk jeni plotësisht të kënaqur me shërbimin, do të rimbursoheni plotësisht, Bi'idnilah"
+  }
+}

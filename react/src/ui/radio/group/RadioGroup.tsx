@@ -24,28 +24,39 @@ const RadioGroup: React.FC<RadioGroupProps> = (props) => {
 
   const radioGroupProps = useRadioGroup(props);
   const isCustomSelected = value >= 4;
-  const {currentProduct} = useFormContext()
-
+  const { currentProduct, formik } = useFormContext();
+  const productType = formik.values.productType;
   const items = props.options.map((option) => {
     const qty = Number(option.value);
     const { discountPercent, priceWithoutDiscount, totalPrice } =
-      calculWheelchairPrice(Number(productPrice), qty, Number(option?.promo));
+      calculWheelchairPrice(
+        productType,
+        Number(productPrice),
+        qty,
+        Number(option?.reduction),
+        Number(option?.promo),
+      );
 
+    let totalWithoutDecimal = totalPrice.toFixed(2).split(".");
     let suffix = totalPrice.toFixed(2) + ` ${currentProduct.currentSymbol}`;
+    if (totalWithoutDecimal[1] === "00") {
+      suffix = totalPrice.toFixed(0) + ` ${currentProduct.currentSymbol}`;
+    } else {
+      suffix = totalPrice.toFixed(2) + ` ${currentProduct.currentSymbol}`;
+    }
     let otherSuffix: string | undefined;
 
     if (discountPercent > 0) {
-      suffix = totalPrice.toFixed(2) + ` ${currentProduct.currentSymbol}`;
-      otherSuffix = priceWithoutDiscount + ` ${currentProduct.currentSymbol}`;
+      otherSuffix =
+        priceWithoutDiscount.toFixed(2) + ` ${currentProduct.currentSymbol}`;
     }
 
     if (option.suffix) {
       suffix = option.suffix;
     }
 
-
     const checked = value?.toString?.() === option.value?.toString?.();
-    const index = name.split('[')[1].split(']')[0];
+    const index = name.split("[")[1].split("]")[0];
 
     return (
       <div key={option.value} className="bg-white w-full rounded-[18px]">
@@ -68,6 +79,7 @@ const RadioGroup: React.FC<RadioGroupProps> = (props) => {
             productPrice={productPrice}
             promo={option.promo}
             index={index}
+            reduction={option.reduction}
           />
         ) : (
           <Radio

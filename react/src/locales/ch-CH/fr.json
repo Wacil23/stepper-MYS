@@ -5,7 +5,8 @@
     "stepThree": "Preuve du dépôt",
     "next": "Suivant",
     "previous": "Précédent",
-    "submit": "Suivant"
+    "submit": "Suivant",
+    "info": "Votre Sadaqa Jariya vous permet de donner un repas décent, gratuitement aux pèlerins en ce mois de Ramadan."
   },
   "beneficiaries": {
     "title": "Bénéficiaire n°{{number}}",
@@ -15,6 +16,15 @@
         "placeholder": "Ex : Muhammad Al Muni",
         "errors": {
           "required": "Le nom est requis",
+          "minLength": "Le nom doit contenir au moins 2 caractères",
+          "maxLength": "Le nom ne peut dépasser 25 caractères"
+        }
+      },
+      "fatherName": {
+        "label": "Père du bénéficiaire",
+        "placeholder": "Ex : 'Abd Allah",
+        "hint": "Si vous ne connaissez pas le prénom du père du bénéficiaire, le nom et prénom de votre bénéficiaire suffiront inshâ Allah.",
+        "errors": {
           "minLength": "Le nom doit contenir au moins 2 caractères",
           "maxLength": "Le nom ne peut dépasser 25 caractères"
         }
@@ -46,8 +56,8 @@
     "addBeneficiary": "+ Ajouter un bénéficiaire"
   },
   "quantity": {
-    "title": "Fauteuil pour <span className=\"capitalize font-medium\">{{name}}</span>",
     "wheelchair": {
+      "title": "Fauteuil pour <span className=\"capitalize font-medium\">{{name}}</span>",
       "label": "1 Fauteuil",
       "label_2": "2 Fauteuils",
       "label_3": "3 Fauteuils",
@@ -59,7 +69,34 @@
         "required": "Le nombre de fauteuil roulant est requis",
         "minLength": "Doit être au moins 1"
       }
-
+    },
+    "quran": {
+      "title": "Quran pour <span className=\"capitalize font-medium\">{{name}}</span>",
+      "label": "1 Coran",
+      "label_2": "2 Corans",
+      "label_3": "3 Corans",
+      "label_custom": "Quantité personnalisée",
+      "description": "Au nom de {{name}}",
+      "description_2": "Au nom de {{name}}",
+      "description_3": "Au nom de {{name}}",
+      "errors": {
+        "required": "Le nombre de coran est requis",
+        "minLength": "Doit être au moins 1"
+      }
+    },
+    "omra": {
+      "title": "Omra pour <span className=\"capitalize font-medium\">{{name}}</span>",
+      "label": "1 Omra",
+      "label_2": "2 Omra",
+      "label_3": "3 Omra",
+      "label_custom": "Quantité personnalisée",
+      "description": "Au nom de {{name}}",
+      "description_2": "Au nom de {{name}}",
+      "description_3": "Au nom de {{name}}",
+      "errors": {
+        "required": "Le nombre de omra est requis",
+        "minLength": "Doit être au moins 1"
+      }
     }
   },
   "frame": {
@@ -69,7 +106,7 @@
       "qr": "Par QR code",
       "description": "",
       "description_mail": "",
-      "description_qr": "Recevez chez vous un cadre QR code pour visionner la vidéo du dépôts.",
+      "description_qr": "Recevez chez vous un cadre QR code pour visionner la vidéo du dépôt.",
       "price_mail": "Gratuit",
       "price_qr": "",
       "errors": {
@@ -85,10 +122,22 @@
       "proof": "Preuve du dépôt ",
       "proofInName": "Preuve au nom de ",
       "frameTypeMail": "Vidéo par mail",
-      "frameTypeQr": "Cadre QR code"
+      "frameTypeQr": "Cadre QR code",
+      "fatherOmra": "Père du bénéficiaire ",
+      "iftar": "Repas offert à "
     }
   },
   "recap": {
-    "total": "Total du service"
+    "total": "Total du service",
+    "total_description": "{{number}} Repas offert à {{number}} Palestinien(s) 🇵🇸",
+    "free": "Gratuit"
+  },
+  "reassurance": {
+    "title_paiement": "Paiement sécurisé",
+    "title_livraison": "Preuve Rapide",
+    "title_satisfaction": "Satisfait ou remboursé",
+    "description_paiement": "Vos paiements par carte (Visa, MasterCard, Amex, etc.) sont protégés, nous veillons à ce que chaque transaction s’effectue en toute quiétude.",
+    "description_livraison": "Recevez la vidéo attestant de votre Sadaqa Jariya dans un délai de 10 à 15 jours.",
+    "description_satisfaction": "Si vous n’êtes pas pleinement satisfait du service, vous serez remboursés intégralement, Bi’idnilah"
   }
 }

@@ -1,0 +1,143 @@
+{
+  "steps": {
+    "stepOne": "Δικαιούχοι",
+    "stepTwo": "Ποσότητα",
+    "stepThree": "Απόδειξη κατάθεσης",
+    "next": "Επόμενο",
+    "previous": "Προηγούμενο",
+    "submit": "Επόμενο",
+    "info": "Η Sadaqa Jariya σας επιτρέπει να προσφέρετε μια ισορροπημένη, δωρεάν κομμωτή στους προσκυνητές σε αυτό το μήνα του Ράμαδα."
+  },
+  "beneficiaries": {
+    "title": "Δικαιούχος αρ. {{number}}",
+    "fields": {
+      "name": {
+        "label": "Όνομα + επώνυμο",
+        "placeholder": "Π.χ.: Muhammad Al Muni",
+        "errors": {
+          "required": "Το όνομα είναι υποχρεωτικό",
+          "minLength": "Το όνομα πρέπει να έχει τουλάχιστον 2 χαρακτήρες",
+          "maxLength": "Το όνομα δεν μπορεί να υπερβαίνει τους 25 χαρακτήρες"
+        }
+      },
+      "fatherName": {
+        "label": "Πατέρας του δικαιούχου",
+        "placeholder": "Π.χ.: 'Abd Allah",
+        "hint": "Αν δεν γνωρίζετε το όνομα του πατέρα του δικαιούχου, το όνομα και το επώνυμο του δικαιούχου σας θα είναι αρκετά inshâ Allah.",
+        "errors": {
+          "minLength": "Το όνομα πρέπει να έχει τουλάχιστον 2 χαρακτήρες",
+          "maxLength": "Το όνομα δεν μπορεί να υπερβαίνει τους 25 χαρακτήρες"
+        }
+      },
+      "gender": {
+        "label": "Ο δικαιούχος είναι",
+        "options": {
+          "male": "Άνδρας",
+          "aMale": "Ένας άνδρας",
+          "female": "Γυναίκα",
+          "aFemale": "Μια γυναίκα"
+        },
+        "errors": {
+          "required": "Το φύλο είναι υποχρεωτικό"
+        }
+      },
+      "status": {
+        "label": "Αποθανών ή άρρωστος;",
+        "options": {
+          "deceased": "Αποθανών",
+          "sick": "Άρρωστος",
+          "none": "Όχι"
+        },
+        "errors": {
+          "required": "Η κατάσταση είναι υποχρεωτική"
+        }
+      }
+    },
+    "addBeneficiary": "+ Προσθήκη δικαιούχου"
+  },
+  "quantity": {
+    "wheelchair": {
+      "title": "Αναπηρικό καροτσάκι για <span className=\"capitalize font-medium\">{{name}}</span>",
+      "label": "1 Αναπηρικό καροτσάκι",
+      "label_2": "2 Αναπηρικά καροτσάκια",
+      "label_3": "3 Αναπηρικά καροτσάκια",
+      "label_custom": "Προσαρμοσμένη ποσότητα",
+      "description": "Βοηθήστε πολλούς προσκυνητές να εκτελέσουν τις τελετές τους με ηρεμία.",
+      "description_2": "Διπλασιάστε τις ανταμοιβές για εσάς και τους αγαπημένους σας.",
+      "description_3": "Πολλαπλασιάστε τον αντίκτυπο στη Μέκκα με 3 καταθέσεις.",
+      "errors": {
+        "required": "Ο αριθμός των αναπηρικών καροτσιών είναι υποχρεωτικός",
+        "minLength": "Πρέπει να είναι τουλάχιστον 1"
+      }
+    },
+    "quran": {
+      "title": "Κοράνι για <span className=\"capitalize font-medium\">{{name}}</span>",
+      "label": "1 Κοράνι",
+      "label_2": "2 Κοράνια",
+      "label_3": "3 Κοράνια",
+      "label_custom": "Προσαρμοσμένη ποσότητα",
+      "description": "Στο όνομα του {{name}}",
+      "description_2": "Στο όνομα του {{name}}",
+      "description_3": "Στο όνομα του {{name}}",
+      "errors": {
+        "required": "Ο αριθμός των κορανίων είναι υποχρεωτικός",
+        "minLength": "Πρέπει να είναι τουλάχιστον 1"
+      }
+    },
+    "omra": {
+      "title": "Ούμρα για <span className=\"capitalize font-medium\">{{name}}</span>",
+      "label": "1 Ούμρα",
+      "label_2": "2 Ούμρες",
+      "label_3": "3 Ούμρες",
+      "label_custom": "Προσαρμοσμένη ποσότητα",
+      "description": "Στο όνομα του {{name}}",
+      "description_2": "Στο όνομα του {{name}}",
+      "description_3": "Στο όνομα του {{name}}",
+      "errors": {
+        "required": "Ο αριθμός των ούμρων είναι υποχρεωτικός",
+        "minLength": "Πρέπει να είναι τουλάχιστον 1"
+      }
+    }
+  },
+  "frame": {
+    "title": "Απόδειξη κατάθεσης για <span className=\"capitalize font-medium\">{{name}}</span>",
+    "frameType": {
+      "mail": "Με email",
+      "qr": "Με κωδικό QR",
+      "description": "",
+      "description_mail": "",
+      "description_qr": "Λάβετε στο σπίτι σας ένα πλαίσιο με κωδικό QR για να δείτε το βίντεο της κατάθεσης.",
+      "price_mail": "Δωρεάν",
+      "price_qr": "",
+      "errors": {
+        "required": "Ο τύπος πλαισίου είναι υποχρεωτικός"
+      }
+    }
+  },
+  "checkout": {
+    "attributes": {
+      "gender": "Φύλο ",
+      "status": "Κατάσταση ",
+      "name": "Στο όνομα του ",
+      "proof": "Απόδειξη κατάθεσης ",
+      "proofInName": "Απόδειξη στο όνομα του ",
+      "frameTypeMail": "Βίντεο με email",
+      "frameTypeQr": "Πλαίσιο με κωδικό QR",
+      "fatherOmra": "Πατέρας του δικαιούχου ",
+      "iftar": "Κομμωτή προσφερόμενη στο όνομα του "
+    }
+  },
+  "recap": {
+    "total": "Σύνολο υπηρεσίας",
+    "total_description": "{{number}} Κομμωτή προσφερόμενη σε {{number}} Παλαιστίνια 🇵🇸",
+    "free": "Δωρεάν"
+  },
+  "reassurance": {
+    "title_paiement": "Ασφαλής πληρωμή",
+    "title_livraison": "Γρήγορη παράδοση",
+    "title_satisfaction": "Ικανοποίηση ή επιστροφή χρημάτων",
+    "description_paiement": "Οι πληρωμές σας με κάρτα (Visa, MasterCard, Amex, κ.λπ.) είναι προστατευμένες, διασφαλίζουμε ότι κάθε συναλλαγή πραγματοποιείται με ηρεμία.",
+    "description_livraison": "Λάβετε το βίντεο που επιβεβαιώνει τη Sadaqa Jariya σας εντός 10-15 ημερών.",
+    "description_satisfaction": "Αν δεν είστε πλήρως ικανοποιημένοι με την υπηρεσία, θα σας επιστραφούν πλήρως τα χρήματα, Bi'idnilah"
+  }
+}

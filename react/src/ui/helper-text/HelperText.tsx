@@ -31,7 +31,7 @@ const HelperText: React.FC<HelperTextProps> = (props) => {
   return (
     <>
       {(text || children) && (
-          <span className={`${handleClassVariant()} text-xs`} {...baseProps}>
+          <span className={`${handleClassVariant()} flex items-center gap-2 mt-1 text-xs`} {...baseProps}>
             {!hideIcon && <Icon />}
             {text ?? children}
           </span>
