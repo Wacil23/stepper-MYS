@@ -39,14 +39,14 @@ const WheelchairForm: React.FC<WheelchairFormProps> = ({
     {
       label: t("quantity.wheelchair.label_2"),
       value: 2,
-      promo: "5",
+      promo: "",
       reduction: "",
       description: t("quantity.wheelchair.description_2"),
     },
     {
       label: t("quantity.wheelchair.label_3"),
       value: 3,
-      promo: "10",
+      promo: "",
       reduction: "",
       description: t("quantity.wheelchair.description_3"),
     },
@@ -54,7 +54,7 @@ const WheelchairForm: React.FC<WheelchairFormProps> = ({
       label: t("quantity.wheelchair.label_custom"),
       value: 4,
       isCustom: true,
-      promo: "15",
+      promo: "",
       reduction: "",
     },
   ];

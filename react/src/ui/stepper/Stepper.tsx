@@ -402,9 +402,9 @@ const Stepper = () => {
     let reduction = 0;
     let promo = "0";
     if (isWheelchair) {
-      if (totalQuantity === 2) promo = "5";
-      else if (totalQuantity === 3) promo = "10";
-      else if (totalQuantity >= 4) promo = "15";
+      // if (totalQuantity === 2) promo = "5";
+      // else if (totalQuantity === 3) promo = "10";
+      // else if (totalQuantity >= 4) promo = "15";
     } else if (isQuran) {
       // if (totalQuantity === 1) reduction = 10.9;
       // if (totalQuantity === 2) reduction = 20.8;
