@@ -5,7 +5,8 @@
     "stepThree": "Preuve du dépôt",
     "next": "Suivant",
     "previous": "Précédent",
-    "submit": "Suivant"
+    "submit": "Suivant",
+    "info": "Votre Sadaqa Jariya vous permet de donner un repas décent, gratuitement aux pèlerins en ce mois de Ramadan."
   },
   "beneficiaries": {
     "title": "Bénéficiaire n°{{number}}",
@@ -122,11 +123,14 @@
       "proofInName": "Preuve au nom de ",
       "frameTypeMail": "Vidéo par mail",
       "frameTypeQr": "Cadre QR code",
-      "fatherOmra": "Père du bénéficiaire "
+      "fatherOmra": "Père du bénéficiaire ",
+      "iftar": "Repas offert à "
     }
   },
   "recap": {
-    "total": "Total du service"
+    "total": "Total du service",
+    "total_description": "{{number}} Repas offert à {{number}} Palestinien(s) 🇵🇸",
+    "free": "Gratuit"
   },
   "reassurance": {
     "title_paiement": "Paiement sécurisé",

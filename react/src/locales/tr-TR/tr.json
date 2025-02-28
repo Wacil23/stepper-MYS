@@ -5,7 +5,8 @@
     "stepThree": "Depozito Kanıtı",
     "next": "Sonraki",
     "previous": "Önceki",
-    "submit": "Sonraki"
+    "submit": "Sonraki",
+    "info": "Sadaqa Jariya, Ramazan ayında pelgrimsler için adil, ücretsiz bir maaltı sunar."
   },
   "beneficiaries": {
     "title": "Faydalanıcı No {{number}}",
@@ -122,11 +123,14 @@
       "proofInName": "Adına Kanıt ",
       "frameTypeMail": "E-posta ile video",
       "frameTypeQr": "QR kod çerçevesi",
-      "fatherOmra": "Faydalanıcının Babası "
+      "fatherOmra": "Faydalanıcının Babası ",
+      "iftar": "Iftar teklif edildi "
     }
   },
   "recap": {
-    "total": "Hizmetin Toplamı"
+    "total": "Hizmetin Toplamı",
+    "total_description": "{{number}} Iftar teklif edildi {{number}} Palestyenler 🇵🇸",
+    "free": "Ücretsiz"
   },
   "reassurance": {
     "title_paiement": "Güvenli ödeme",

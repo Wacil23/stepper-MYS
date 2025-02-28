@@ -52,10 +52,6 @@ export default function App() {
         mymoney,
       } = container.dataset;
 
-      currentPrice = "16900";
-      mymoney = "16900 EUR";
-      currentId = "8707286237526";
-
       if (mymoney) {
         const currencyCode = getCurrencyCode(mymoney);
         const symbolFromMap = getSymbolFromCurrencyCode(

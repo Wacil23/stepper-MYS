@@ -4,6 +4,7 @@ import { useRadio } from "..";
 import { IoChevronBack } from "react-icons/io5";
 import { calculWheelchairPrice } from "../../../utils/calculWheelchair";
 import { useFormContext } from "../../../contexts/FormProvider";
+import { useTranslation } from "react-i18next";
 
 type RadioNumberType = RadioNumberProps & {
   onNumberChange: (
@@ -28,16 +29,14 @@ const RadioNumber: React.FC<RadioNumberType> = (props) => {
     min = 4,
     onNumberChange,
     onChange,
-    suffix,
     numberValues,
     productPrice,
     promo,
-    numberSelection,
     reduction,
-    index,
     checked,
     ...radioProps
   } = props;
+  const { t } = useTranslation();
   const { inputProps } = useRadio(radioProps);
   const { currentProduct, formik } = useFormContext();
   const productType = formik.values.productType;
@@ -134,6 +133,10 @@ const RadioNumber: React.FC<RadioNumberType> = (props) => {
     // For 4 Don't forget its on RadioNumber
   };
 
+  const description = t("quantity.wheelchair.description_custom", {
+    number: value,
+  });
+
   const imageForNumberPorduct =
     productType === "wheelchair"
       ? "https://cdn.shopify.com/s/files/1/0793/7412/3350/files/wheel4.png?v=1737255675"
@@ -172,6 +175,7 @@ const RadioNumber: React.FC<RadioNumberType> = (props) => {
               </p>
             )}
           </div>
+          {description && <p className="text-xs font-medium">{description}</p>}
           {isCustom && (
             <div className="flex border py-1 rounded-full justify-between items-stretch">
               <button onClick={handleMinusClick} className=" px-3">

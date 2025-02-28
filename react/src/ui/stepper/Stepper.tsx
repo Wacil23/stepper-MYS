@@ -8,7 +8,6 @@ import { ICartInput } from "../../models/cart/ICart";
 import { useTranslation } from "react-i18next";
 import { calculWheelchairPrice } from "../../utils/calculWheelchair";
 import QuantityForm from "../../components/quantity/QuantityForm";
-import Reassurance from "../../components/reassurance/Reassurance";
 
 const Stepper = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
@@ -21,6 +20,7 @@ const Stepper = () => {
   const headerHeight = 85;
   const { setTotalPrice, totalPrice, currentProduct, cadreProduct } =
     useFormContext();
+  // const [priceWithoutDiscount, setPriceWithoutDiscount] = useState<number>(0);
   const { t } = useTranslation();
 
   const aMale = t("beneficiaries.fields.gender.options.aMale");
@@ -173,7 +173,10 @@ const Stepper = () => {
               value: genderValue(beneficiary.gender),
             },
             { key: t("checkout.attributes.name"), value: beneficiary.name },
-            { key: t("checkout.attributes.status"), value: beneficiary.status },
+            {
+              key: t("checkout.attributes.status"),
+              value: beneficiary.status,
+            },
             {
               key: t("checkout.attributes.proof"),
               value: frameTypeValue(beneficiary.frameType),
@@ -198,6 +201,31 @@ const Stepper = () => {
           };
         });
 
+      const iftarLines = beneficiaries.map((beneficiary) => {
+        const isWheelchair =
+          productType === "wheelchair" && "wheelchairCount" in beneficiary;
+        const isQuran = productType === "quran" && "quranCount" in beneficiary;
+        const isOmra = productType === "omra" && "omraCount" in beneficiary;
+        const isOmraRamadan =
+          productType === "omraRamadan" && "omraCount" in beneficiary;
+        return {
+          merchandiseId: "gid://shopify/ProductVariant/49945517785430",
+          quantity: isWheelchair
+            ? beneficiary.wheelchairCount
+            : isQuran
+              ? beneficiary.quranCount
+              : isOmra || isOmraRamadan
+                ? beneficiary.omraCount
+                : 1,
+          attributes: [
+            {
+              key: t("checkout.attributes.iftar"),
+              value: beneficiary.name,
+            },
+          ],
+        };
+      });
+
       const countryMapBySymbol: Record<string, string> = {
         "€": "FR",
         CHF: "CH",
@@ -221,7 +249,7 @@ const Stepper = () => {
       getCountryCode();
 
       const input: ICartInput = {
-        lines: [...wheelchairLines, ...frameQrLines],
+        lines: [...wheelchairLines, ...frameQrLines, ...iftarLines],
         buyerIdentity: {
           countryCode: getCountryCode(),
         },
@@ -279,6 +307,7 @@ const Stepper = () => {
     "omraCount" in formik.values.beneficiaries[0];
   let initialValue: BeneficiariesCreationModel["beneficiaries"][0] | null =
     null;
+
   if (isWheelchair) {
     initialValue = {
       name: "",
@@ -291,6 +320,7 @@ const Stepper = () => {
       price: 0,
     };
   }
+
   if (isQuran) {
     initialValue = {
       name: "",
@@ -303,6 +333,7 @@ const Stepper = () => {
       price: 0,
     };
   }
+
   if (isOmra || isOmraRamadan) {
     initialValue = {
       name: "",
@@ -411,6 +442,7 @@ const Stepper = () => {
       totalFinalPrice = Number(finalPrice.toFixed(2));
     }
     setTotalPrice(totalFinalPrice);
+    // setPriceWithoutDiscount(priceWithoutDiscount);
   }, [formik.values.beneficiaries, currentProduct, setTotalPrice]);
 
   const steps = [
@@ -432,6 +464,23 @@ const Stepper = () => {
     { number: 2, value: t("steps.stepTwo"), component: <QuantityForm /> },
     { number: 3, value: t("steps.stepThree"), component: <FrameForm /> },
   ];
+
+  const totalProduct = formik.values.beneficiaries.reduce((acc, b) => {
+    const isWheelchair =
+      formik.values.productType === "wheelchair" && "wheelchairCount" in b;
+    const isQuran = formik.values.productType === "quran" && "quranCount" in b;
+    const isOmra = formik.values.productType === "omra" && "omraCount" in b;
+    return (
+      acc +
+      (isWheelchair
+        ? b.wheelchairCount
+        : isQuran
+          ? b.quranCount
+          : isOmra
+            ? b.omraCount
+            : 0)
+    );
+  }, 0);
 
   return (
     <>
@@ -469,9 +518,16 @@ const Stepper = () => {
           );
         })}
       </div>
-      <div className="mt-7">
-        {steps.find((step) => step.number === currentStep)?.component}
+      <div className="my-7">
+        <div className="p-4 border-l-red-500 border-r-black border-t-black border-b-green-800 border-2 rounded-xl flex items-start lg:items-center gap-4">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0793/7412/3350/files/iconpalestine.svg?v=1740573459"
+            width={20}
+          />
+          <p className="text-xs text-pretty">{t("steps.info")}</p>
+        </div>
       </div>
+      <div>{steps.find((step) => step.number === currentStep)?.component}</div>
       <div className="flex justify-between mt-4">
         {!isFirstStep ? (
           <button
@@ -484,7 +540,7 @@ const Stepper = () => {
         ) : (
           <button
             type="button"
-            className={`cursor-pointer border border-secondary px-6 py-4 rounded-full text-base text-secondary font-semibold`}
+            className={`cursor-pointer px-6 py-4 rounded-full text-base text-secondary font-semibold`}
             onClick={() => handleAddBeneficiary()}
           >
             {t("beneficiaries.addBeneficiary")}
@@ -502,15 +558,37 @@ const Stepper = () => {
         {(isLastStep || !isFirstStep) && (
           <div className="rounded-xl my-6 bg-dark-light p-2">
             <div className="bg-white p-4 flex items-center justify-between rounded-xl">
-              <p className="text-base font-semibold">{t("recap.total")}</p>
-              <p className="text-base font-bold">
-                {totalPrice.toFixed(2)} {currentProduct.currentSymbol}
-              </p>
+              <div className="flex flex-col gap-1">
+                <p className="text-base font-semibold">{t("recap.total")}</p>
+                <p className="text-xs font-light my-1">
+                  {t("recap.total_description", {
+                    number: totalProduct,
+                  })}
+                </p>
+                {/* {ecoPrice > 0 && (
+                  <p className="text-xs font-semibold mt-2">
+                    Éconnomie total :
+                  </p>
+                )} */}
+              </div>
+              <div className="flex flex-col gap-1">
+                <p className="text-base font-bold">
+                  {totalPrice.toFixed(2)} {currentProduct.currentSymbol}
+                </p>
+                <p className="text-base text-right font-medium my-1">
+                  {t("recap.free")}
+                </p>
+                {/* {ecoPrice > 0 && (
+                  <p className="text-xs font-bold mt-2 text-right">
+                    {ecoPrice.toFixed(2)}
+                    {currentProduct.currentSymbol}
+                  </p>
+                )} */}
+              </div>
             </div>
           </div>
         )}
       </div>
-      <Reassurance />
     </>
   );
 };

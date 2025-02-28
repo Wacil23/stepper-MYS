@@ -5,7 +5,8 @@
     "stepThree": "Доказателство за депозит",
     "next": "Следващ",
     "previous": "Предишен",
-    "submit": "Следващ"
+    "submit": "Следващ",
+    "info": "Вашата Sadaqa Jariya ви позволява да дадете справедлива, безплатна вечеря на pelegrините в този месец на Рамадан."
   },
   "beneficiaries": {
     "title": "Бенефициент №{{number}}",
@@ -122,11 +123,14 @@
       "proofInName": "Доказателство в името на ",
       "frameTypeMail": "Видео по имейл",
       "frameTypeQr": "Рамка с QR код",
-      "fatherOmra": "Баща на бенефициента "
+      "fatherOmra": "Баща на бенефициента ",
+      "iftar": "Iftar предложен на "
     }
   },
   "recap": {
-    "total": "Обща стойност на услугата"
+    "total": "Обща стойност на услугата",
+    "total_description": "{{number}} Iftar предложени на {{number}} Палестински",
+    "free": "Безплатно"
   },
   "reassurance": {
     "title_paiement": "Сигурно плащане",

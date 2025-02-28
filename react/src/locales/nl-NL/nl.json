@@ -5,7 +5,8 @@
     "stepThree": "Bewijs van storting",
     "next": "Volgende",
     "previous": "Vorige",
-    "submit": "Indienen"
+    "submit": "Indienen",
+    "info": "Uw Sadaqa Jariya stelt u in staat om een eerlijk, gratis maaltijd aan pelgrims te offeren in deze maand van Ramadan."
   },
   "beneficiaries": {
     "title": "Begunstigde nr. {{number}}",
@@ -122,11 +123,14 @@
       "proofInName": "Bewijs op naam van ",
       "frameTypeMail": "Video via e-mail",
       "frameTypeQr": "QR-code kader",
-      "fatherOmra": "Vader van de begunstigde "
+      "fatherOmra": "Vader van de begunstigde ",
+      "iftar": "Maaltijd aangeboden aan "
     }
   },
   "recap": {
-    "total": "Totaalbedrag van de dienst"
+    "total": "Totaalbedrag van de dienst",
+    "total_description": "{{number}} Maaltijd aangeboden aan {{number}} Palestijnen 🇵🇸",
+    "free": "Gratis"
   },
   "reassurance": {
     "title_paiement": "Veilige betaling",

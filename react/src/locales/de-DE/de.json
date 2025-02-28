@@ -5,7 +5,8 @@
     "stepThree": "Einzahlungsnachweis",
     "next": "Weiter",
     "previous": "Zurück",
-    "submit": "Einreichen"
+    "submit": "Einreichen",
+    "info": "Ihre Sadaqa Jariya ermöglicht es Ihnen, eine faire, kostenlose Mahlzeit für Pilger in diesem Monat von Ramadan zu spenden."
   },
   "beneficiaries": {
     "title": "Begünstigter Nr. {{number}}",
@@ -122,11 +123,14 @@
       "proofInName": "Nachweis im Namen von ",
       "frameTypeMail": "Video per E-Mail",
       "frameTypeQr": "QR-Code-Rahmen",
-      "fatherOmra": "Vater des Begünstigten "
+      "fatherOmra": "Vater des Begünstigten ",
+      "iftar": "Iftar angeboten an "
     }
   },
   "recap": {
-    "total": "Gesamtbetrag des Services"
+    "total": "Gesamtbetrag des Services",
+    "total_description": "{{number}} Iftar angeboten an {{number}} Palästinenser 🇵🇸",
+    "free": "Kostenlos"
   },
   "reassurance": {
     "title_paiement": "Sichere Zahlung",

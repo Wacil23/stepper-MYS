@@ -5,7 +5,8 @@
     "stepThree": "Prueba de depósito",
     "next": "Siguiente",
     "previous": "Anterior",
-    "submit": "Siguiente"
+    "submit": "Siguiente",
+    "info": "Tu Sadaqa Jariya te permite ofrecer una comida equitativa, gratuita a los peregrinos en este mes de Ramadán."
   },
   "beneficiaries": {
     "title": "Beneficiario n°{{number}}",
@@ -122,11 +123,14 @@
       "proofInName": "Prueba en nombre de ",
       "frameTypeMail": "Video por correo",
       "frameTypeQr": "Marco con código QR",
-      "fatherOmra": "Padre del beneficiario "
+      "fatherOmra": "Padre del beneficiario ",
+      "iftar": "Comida ofrecida a "
     }
   },
   "recap": {
-    "total": "Total del servicio"
+    "total": "Total del servicio",
+    "total_description": "{{number}} Comida ofrecida a {{number}} Palestinos 🇵🇸",
+    "free": "Gratis"
   },
   "reassurance": {
     "title_paiement": "Pago seguro",

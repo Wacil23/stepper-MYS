@@ -5,7 +5,8 @@
     "stepThree": "Dëshmia e depozitës",
     "next": "Tjetër",
     "previous": "I mëparshëm",
-    "submit": "Tjetër"
+    "submit": "Tjetër",
+    "info": "Sadaqa Jariya ju lërë të ofrosh një repas i kënaquës, falas, në emër të përfituesve në këtë muaj të Ramazanit."
   },
   "beneficiaries": {
     "title": "Përfituesi nr. {{number}}",
@@ -122,11 +123,14 @@
       "proofInName": "Dëshmia në emër të ",
       "frameTypeMail": "Video me email",
       "frameTypeQr": "Kornizë me kod QR",
-      "fatherOmra": "Babai i përfituesit "
+      "fatherOmra": "Babai i përfituesit ",
+      "iftar": "Vakt i ofruar në emër të "
     }
   },
   "recap": {
-    "total": "Totali i shërbimit"
+    "total": "Totali i shërbimit",
+    "total_description": "{{number}} Iftar ofruar në emër të {{number}} Palestinës 🇵🇸",
+    "free": "E pamjaftueshëm"
   },
   "reassurance": {
     "title_paiement": "Pagesë e sigurt",

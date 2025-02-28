@@ -1,22 +1,24 @@
-import remToPx from 'tailwindcss-rem-to-px';
+import remToPx from "tailwindcss-rem-to-px";
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html",            // si tu as un index.html au root
-  "./src/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    "./index.html", // si tu as un index.html au root
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {
       colors: {
-        primary: "#00262B",
-        secondary:"#00785B",
+        primary: "#000000",
+        secondary: "#000000",
         dark: {
-          light: "#F7F7F7",
+          light: "#f4f4f4",
           stroke: "#E8E8E8",
-        }
+        },
       },
       fontSize: {
-        base: '14px'
-      }
+        base: "14px",
+      },
     },
     hidevisually: {
       border: "0",
@@ -28,13 +30,12 @@ export default {
       position: "absolute",
       whiteSpace: "nowrap",
       width: "1px",
-    }
+    },
   },
 
   plugins: [
     remToPx({
       baseFontSize: 16,
-  })
+    }),
   ],
-}
-
+};
