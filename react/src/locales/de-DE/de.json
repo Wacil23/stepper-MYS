@@ -63,10 +63,10 @@
       "label_2": "2 Rollstühle",
       "label_3": "3 Rollstühle",
       "label_custom": "Benutzerdefinierte Menge",
-      "description": "+1 Mahlzeit für 1 Palästinenser gespendet",
-      "description_2": "+2 Mahlzeiten für 2 Palästinenser gespendet",
-      "description_3": "+3 Mahlzeiten für 3 Palästinenser gespendet",
-      "description_custom": "+{{number}} Mahlzeiten für {{number}} Palästinenser gespendet",
+      "description": "im Namen von {{name}}",
+      "description_2": "im Namen von {{name}}",
+      "description_3": "im Namen von {{name}}",
+      "description_custom": "im Namen von {{name}}",
       "errors": {
         "required": "Die Anzahl der Rollstühle ist erforderlich",
         "minLength": "Mindestens 1 erforderlich"
@@ -78,10 +78,10 @@
       "label_2": "2 Korane",
       "label_3": "3 Korane",
       "label_custom": "Benutzerdefinierte Menge",
-      "description": "+1 Mahlzeit für 1 Palästinenser gespendet",
-      "description_2": "+2 Mahlzeiten für 2 Palästinenser gespendet",
-      "description_3": "+3 Mahlzeiten für 3 Palästinenser gespendet",
-      "description_custom": "+{{number}} Mahlzeiten für {{number}} Palästinenser gespendet",
+      "description": "im Namen von {{name}}",
+      "description_2": "im Namen von {{name}}",
+      "description_3": "im Namen von {{name}}",
+      "description_custom": "im Namen von {{name}}",
       "errors": {
         "required": "Die Anzahl der Korane ist erforderlich",
         "minLength": "Mindestens 1 erforderlich"
@@ -93,10 +93,10 @@
       "label_2": "2 Umrah",
       "label_3": "3 Umrah",
       "label_custom": "Benutzerdefinierte Menge",
-      "description": "+1 Mahlzeit für 1 Palästinenser gespendet",
-      "description_2": "+2 Mahlzeiten für 2 Palästinenser gespendet",
-      "description_3": "+3 Mahlzeiten für 3 Palästinenser gespendet",
-      "description_custom": "+{{number}} Mahlzeiten für {{number}} Palästinenser gespendet",
+      "description": "im Namen von {{name}}",
+      "description_2": "im Namen von {{name}}",
+      "description_3": "im Namen von {{name}}",
+      "description_custom": "im Namen von {{name}}",
       "errors": {
         "required": "Die Anzahl der Umrah ist erforderlich",
         "minLength": "Mindestens 1 erforderlich"

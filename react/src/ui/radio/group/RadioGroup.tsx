@@ -37,7 +37,7 @@ const RadioGroup: React.FC<RadioGroupProps> = (props) => {
         Number(option?.promo),
       );
 
-    let totalWithoutDecimal = totalPrice.toFixed(2).split(".");
+    const totalWithoutDecimal = totalPrice.toFixed(2).split(".");
     let suffix = totalPrice.toFixed(2) + ` ${currentProduct.currentSymbol}`;
     if (totalWithoutDecimal[1] === "00") {
       suffix = totalPrice.toFixed(0) + ` ${currentProduct.currentSymbol}`;
@@ -46,7 +46,7 @@ const RadioGroup: React.FC<RadioGroupProps> = (props) => {
     }
     let otherSuffix: string | undefined;
 
-    if (discountPercent > 0) {
+    if (discountPercent > 0 && productType !== "quran") {
       otherSuffix =
         priceWithoutDiscount.toFixed(2) + ` ${currentProduct.currentSymbol}`;
     }
@@ -57,6 +57,19 @@ const RadioGroup: React.FC<RadioGroupProps> = (props) => {
 
     const checked = value?.toString?.() === option.value?.toString?.();
     const index = name.split("[")[1].split("]")[0];
+
+    const getCurrentCompareAtPrice = (
+      quantity: number,
+      compareAtPrice?: string,
+    ) => {
+      if (compareAtPrice) {
+        const currentCompareAtPrice = (Number(compareAtPrice) / 100) * quantity;
+        return isNaN(currentCompareAtPrice)
+          ? undefined
+          : currentCompareAtPrice + " " + currentProduct.currentSymbol;
+      }
+      return undefined;
+    };
 
     return (
       <div key={option.value} className="bg-white w-full rounded-[18px]">
@@ -92,12 +105,17 @@ const RadioGroup: React.FC<RadioGroupProps> = (props) => {
             disabled={disabled}
             name={name}
             onChange={props.onChange}
+            beneficiaryIndex={Number(index)}
             required={required}
             error={error}
             suffix={suffix}
             otherSuffix={otherSuffix}
             description={option.description}
             promo={option.promo}
+            compareAtPrice={getCurrentCompareAtPrice(
+              Number(option.value),
+              currentProduct.currentCompareAtPrice,
+            )}
           />
         )}
       </div>
@@ -114,7 +132,10 @@ const RadioGroup: React.FC<RadioGroupProps> = (props) => {
     if (showError) {
       helperTextProps = {
         id: errorId,
-        text: typeof error === "object" ? (error as any).label : error,
+        text:
+          typeof error === "object"
+            ? (error as unknown as { label: string }).label
+            : error,
         variant: "error",
       };
     } else if (hint) {

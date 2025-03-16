@@ -63,9 +63,10 @@
       "label_2": "2 Tekerlekli Sandalye",
       "label_3": "3 Tekerlekli Sandalye",
       "label_custom": "Özel Miktar",
-      "description": "Birçok hacının ibadetlerini huzur içinde yapmasına yardımcı olun.",
-      "description_2": "Kendiniz ve sevdikleriniz için sevapları ikiye katlayın.",
-      "description_3": "Mekke'de 3 depo ile etkiyi artırın.",
+      "description": "5 Filistinli için +5 öğün yemek",
+      "description_2": "10 Filistinli için +10 öğün yemek",
+      "description_3": "15 Filistinli için +15 öğün yemek",
+      "description_custom": "{{number}} Filistinli için +{{number}} öğün yemek",
       "errors": {
         "required": "Tekerlekli sandalye sayısı gereklidir",
         "minLength": "En az 1 olmalıdır"
@@ -130,7 +131,7 @@
   },
   "recap": {
     "total": "Hizmetin Toplamı",
-    "total_description": "{{number}} Iftar teklif edildi {{number}} Palestyenler 🇵🇸",
+    "total_description": "{{number}} Filistinli için +{{number}} öğün yemek",
     "free": "Ücretsiz"
   },
   "reassurance": {

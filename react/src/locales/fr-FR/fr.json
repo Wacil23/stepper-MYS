@@ -63,10 +63,10 @@
       "label_2": "2 Fauteuils",
       "label_3": "3 Fauteuils",
       "label_custom": "Quantité personnalisée",
-      "description": "+1 repas offert à 1 Palestinien 🇵🇸",
-      "description_2": "+2 repas offerts à 2 Palestiniens 🇵🇸",
-      "description_3": "+3 repas offerts à 3 Palestiniens 🇵🇸",
-      "description_custom": "+{{number}} repas offert(s) à {{number}} Palestinien(s) 🇵🇸",
+      "description": "Au nom de {{name}}",
+      "description_2": "Au nom de {{name}}",
+      "description_3": "Au nom de {{name}}",
+      "description_custom": "Au nom de {{name}}",
       "errors": {
         "required": "Le nombre de fauteuil roulant est requis",
         "minLength": "Doit être au moins 1"
@@ -78,10 +78,10 @@
       "label_2": "2 Corans",
       "label_3": "3 Corans",
       "label_custom": "Quantité personnalisée",
-      "description": "+1 repas offert à un Palestinien 🇵🇸",
-      "description_2": "+2 repas offerts à deux Palestiniens 🇵🇸",
-      "description_3": "+3 repas offerts à trois Palestiniens 🇵🇸",
-      "description_custom": "+{{number}} repas offert(s) à {{number}} Palestinien(s) 🇵🇸",
+      "description": "Au nom de {{name}}",
+      "description_2": "Au nom de {{name}}",
+      "description_3": "Au nom de {{name}}",
+      "description_custom": "Au nom de {{name}}",
       "errors": {
         "required": "Le nombre de coran est requis",
         "minLength": "Doit être au moins 1"
@@ -93,10 +93,10 @@
       "label_2": "2 Omra",
       "label_3": "3 Omra",
       "label_custom": "Quantité personnalisée",
-      "description": "+1 repas offert à un Palestinien 🇵🇸",
-      "description_2": "+2 repas offerts à deux Palestiniens 🇵🇸",
-      "description_3": "+3 repas offerts à trois Palestiniens 🇵🇸",
-      "description_custom": "+{{number}} repas offert(s) à {{number}} Palestinien(s) 🇵🇸",
+      "description": "Au nom de {{name}}",
+      "description_2": "Au nom de {{name}}",
+      "description_3": "Au nom de {{name}}",
+      "description_custom": "Au nom de {{name}}",
       "errors": {
         "required": "Le nombre de omra est requis",
         "minLength": "Doit être au moins 1"

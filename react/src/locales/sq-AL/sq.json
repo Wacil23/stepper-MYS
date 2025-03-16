@@ -7,7 +7,7 @@
     "previous": "I mëparshëm",
     "submit": "Tjetër",
     "infoTitle": "+ Një vakt ofruar në emër të përfituesve",
-    "infoDescription": "Sadaqa Jariya ju lërë të ofrosh një vakt i kënaquës, falas, në emër të përfituesve në këtë muaj të Ramazanit."
+    "infoDescription": "Tani sadaqa juaj ushqen edhe Gazën"
   },
   "beneficiaries": {
     "title": "Përfituesi nr. {{number}}",
@@ -63,9 +63,10 @@
       "label_2": "2 Karroca",
       "label_3": "3 Karroca",
       "label_custom": "Sasi e personalizuar",
-      "description": "+1 vakt ofruar në emër të {{name}}",
-      "description_2": "+2 vakt ofruar në emër të {{name}}",
-      "description_3": "+3 vakt ofruar në emër të {{name}}",
+      "description": "in emër të 5 Palestijnen",
+      "description_2": "in emër të 10 Palestijnen",
+      "description_3": "in emër të 15 Palestijnen",
+      "description_custom": "+{{number}} vakt ofruar në emër të {{number}} Palestijnen",
       "errors": {
         "required": "Numri i karrocave është i nevojshëm",
         "minLength": "Duhet të jetë të paktën 1"
@@ -77,9 +78,10 @@
       "label_2": "2 Kur'ane",
       "label_3": "3 Kur'ane",
       "label_custom": "Sasi e personalizuar",
-      "description": "+1 vakt ofruar në emër të {{name}}",
-      "description_2": "+2 vakt ofruar në emër të {{name}}",
-      "description_3": "+3 vakt ofruar në emër të {{name}}",
+      "description": "in emër të 1 Palestijn",
+      "description_2": "in emër të 2 Palestijnen",
+      "description_3": "in emër të 3 Palestijnen",
+      "description_custom": "in emër të {{number}} Palestijnen",
       "errors": {
         "required": "Numri i kur'aneve është i nevojshëm",
         "minLength": "Duhet të jetë të paktën 1"
@@ -91,9 +93,10 @@
       "label_2": "2 Umra",
       "label_3": "3 Umra",
       "label_custom": "Sasi e personalizuar",
-      "description": "+1 vakt ofruar në emër të {{name}}",
-      "description_2": "+2 vakt ofruar në emër të {{name}}",
-      "description_3": "+3 vakt ofruar në emër të {{name}}",
+      "description": "+5 vakt ofruar në emër të 5 Palestijnen",
+      "description_2": "in emër të 2 Palestijnen",
+      "description_3": "in emër të 3 Palestijnen",
+      "description_custom": "in emër të {{number}} Palestijnen",
       "errors": {
         "required": "Numri i umrave është i nevojshëm",
         "minLength": "Duhet të jetë të paktën 1"

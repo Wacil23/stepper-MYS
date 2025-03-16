@@ -12,12 +12,12 @@ type CurrentProduct = {
 
 type OmraFormProps = {
   beneficiary: BeneficiaryOmraCreationModel;
-  index: number
-}
+  index: number;
+};
 
-const OmraForm: React.FC<OmraFormProps> = ({beneficiary, index}) => {
+const OmraForm: React.FC<OmraFormProps> = ({ beneficiary, index }) => {
   const { formik, currentProduct } = useFormContext();
-  const product = (currentProduct as CurrentProduct)
+  const product = currentProduct as CurrentProduct;
   const { t } = useTranslation();
   const { setFieldValue } = formik;
 
@@ -25,7 +25,7 @@ const OmraForm: React.FC<OmraFormProps> = ({beneficiary, index}) => {
     {
       label: t("quantity.omra.label"),
       value: 1,
-      description: t("quantity.omra.description", {name: beneficiary.name}),
+      description: t("quantity.omra.description", { name: beneficiary.name }),
       promo: "",
       reduction: "0",
     },
@@ -34,14 +34,14 @@ const OmraForm: React.FC<OmraFormProps> = ({beneficiary, index}) => {
       value: 2,
       promo: "",
       reduction: "0",
-      description: t("quantity.omra.description_2",  {name: beneficiary.name}),
+      description: t("quantity.omra.description_2", { name: beneficiary.name }),
     },
     {
       label: t("quantity.omra.label_3"),
       value: 3,
       promo: "",
       reduction: "0",
-      description: t("quantity.omra.description_3", {name: beneficiary.name}),
+      description: t("quantity.omra.description_3", { name: beneficiary.name }),
     },
     {
       label: t("quantity.omra.label_custom"),
@@ -101,7 +101,11 @@ const OmraForm: React.FC<OmraFormProps> = ({beneficiary, index}) => {
           onNumberChange: (e) => handleomraCountChanged(e, index),
           productPrice: product.currentPrice ?? "24900",
         }}
-        onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => handleomraSelectionChanged(e, index)}
+        onChange={(
+          e: React.ChangeEvent<
+            HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+          >,
+        ) => handleomraSelectionChanged(e, index)}
         label=""
       />
     </>

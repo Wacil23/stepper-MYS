@@ -63,10 +63,10 @@
       "label_2": "2 Sedie a rotelle",
       "label_3": "3 Sedie a rotelle",
       "label_custom": "Quantità personalizzata",
-      "description": "+1 pasto offerta a 1 pellegrino",
-      "description_2": "+2 pasti offerti a 2 pellegrini",
-      "description_3": "+3 pasti offerti a 3 pellegrini",
-      "description_custom": "+{{number}} pasti offerti a {{number}} pellegrini",
+      "description": "in nome di {{name}}",
+      "description_2": "in nome di {{name}}",
+      "description_3": "in nome di {{name}}",
+      "description_custom": "in nome di {{name}}",
       "errors": {
         "required": "Il numero di sedie a rotelle è obbligatorio",
         "minLength": "Deve essere almeno 1"
@@ -78,10 +78,10 @@
       "label_2": "2 Corani",
       "label_3": "3 Corani",
       "label_custom": "Quantità personalizzata",
-      "description": "+1 pasto offerta a 1 pellegrino",
-      "description_2": "+2 pasti offerti a 2 pellegrini",
-      "description_3": "+3 pasti offerti a 3 pellegrini",
-      "description_custom": "+{{number}} pasti offerti a {{number}} pellegrini",
+      "description": "in nome di {{name}}",
+      "description_2": "in nome di {{name}}",
+      "description_3": "in nome di {{name}}",
+      "description_custom": "in nome di {{name}}",
       "errors": {
         "required": "Il numero di Corani è obbligatorio",
         "minLength": "Deve essere almeno 1"
@@ -93,10 +93,10 @@
       "label_2": "2 Umrah",
       "label_3": "3 Umrah",
       "label_custom": "Quantità personalizzata",
-      "description": "+1 pasto offerta a 1 pellegrino",
-      "description_2": "+2 pasti offerti a 2 pellegrini",
-      "description_3": "+3 pasti offerti a 3 pellegrini",
-      "description_custom": "+{{number}} pasti offerti a {{number}} pellegrini",
+      "description": "in nome di {{name}}",
+      "description_2": "in nome di {{name}}",
+      "description_3": "in nome di {{name}}",
+      "description_custom": "in nome di {{name}}",
       "errors": {
         "required": "Il numero di Umrah è obbligatorio",
         "minLength": "Deve essere almeno 1"

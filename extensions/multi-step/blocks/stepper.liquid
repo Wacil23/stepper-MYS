@@ -1,5 +1,9 @@
 <!-- Conteneur où React s’injectera -->
 {% assign current_product = product %}
+{% if current_product.compare_at_price %}
+  {% assign current_compare_at_price = current_product.compare_at_price %}
+{% endif %}
+
 {% for product in collections.all.products %}
   {% case product.id %}
     {% when 9228792955222 %}
@@ -15,7 +19,7 @@
 {% endfor %}
 {% assign mymoney = product.price | money |  money_with_currency %}
 
-<div data-mymoney="{{mymoney}}" data-cadre-id="{{cadre.id}}" data-cadre-title="{{cadre.title}}" data-cadre-price="{{cadre.price}}" data-current-id="{{current_product.id}}" data-current-title="{{current_product.title}}" data-current-price="{{current_product.price}}" data-current-symbol="{{symbol}}" id="product-stepper">
+<div data-mymoney="{{mymoney}}" data-cadre-id="{{cadre.id}}" data-cadre-title="{{cadre.title}}" data-cadre-price="{{cadre.price}}" data-current-id="{{current_product.id}}" data-current-title="{{current_product.title}}" data-current-price="{{current_product.price}}" data-current-compare-at-price="{{current_compare_at_price}}" data-current-symbol="{{symbol}}" id="product-stepper">
 
   <!-- On peut afficher un "chargement" par défaut, qui sera remplacé par React -->
   <div class="stepper-loading">Chargement en cours...</div>

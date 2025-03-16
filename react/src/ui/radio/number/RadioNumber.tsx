@@ -32,6 +32,7 @@ const RadioNumber: React.FC<RadioNumberType> = (props) => {
     numberValues,
     productPrice,
     promo,
+    index,
     reduction,
     checked,
     ...radioProps
@@ -42,28 +43,26 @@ const RadioNumber: React.FC<RadioNumberType> = (props) => {
   const productType = formik.values.productType;
   const { className, onChange: nativeOnChange, ...input } = inputProps;
   const [value, setValue] = useState(min);
-  const { priceWithoutDiscount, totalPrice } = calculWheelchairPrice(
-    productType,
-    Number(productPrice),
-    Number(value),
-    Number(reduction),
-    Number(promo),
-  );
-  let totalFinalPrice = totalPrice;
+  const { priceWithoutDiscount, totalPrice, discountPercent } =
+    calculWheelchairPrice(
+      productType,
+      Number(productPrice),
+      Number(value),
+      Number(reduction),
+      Number(promo),
+    );
   const totalWithoutDecimal = totalPrice.toFixed(2).split(".");
-
+  let suffix = totalPrice.toFixed(2) + ` ${currentProduct.currentSymbol}`;
   if (totalWithoutDecimal[1] === "00") {
-    totalFinalPrice = Number(totalPrice.toFixed(0));
+    suffix = totalPrice.toFixed(0) + ` ${currentProduct.currentSymbol}`;
   } else {
-    totalFinalPrice = Number(totalPrice.toFixed(2));
+    suffix = totalPrice.toFixed(2) + ` ${currentProduct.currentSymbol}`;
   }
+  let otherSuffix: string | undefined;
 
-  const totalPriceCustomWheelchair =
-    totalFinalPrice.toFixed(2) + " " + currentProduct.currentSymbol;
-  let otherSuffix = null;
-  if (promo) {
+  if (discountPercent > 0 && productType !== "quran") {
     otherSuffix =
-      priceWithoutDiscount.toFixed(0) + " " + currentProduct.currentSymbol;
+      priceWithoutDiscount.toFixed(2) + ` ${currentProduct.currentSymbol}`;
   }
 
   const handleMinusClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -125,16 +124,8 @@ const RadioNumber: React.FC<RadioNumberType> = (props) => {
     }
   };
 
-  const returnPromo = () => {
-    if (promo === "27") {
-      return "25";
-    }
-    return promo;
-    // For 4 Don't forget its on RadioNumber
-  };
-
   const description = t("quantity.wheelchair.description_custom", {
-    number: value,
+    name: formik.values.beneficiaries[index ? Number(index) : 0].name,
   });
 
   const imageForNumberPorduct =
@@ -143,6 +134,20 @@ const RadioNumber: React.FC<RadioNumberType> = (props) => {
       : productType === "quran"
         ? "https://cdn.shopify.com/s/files/1/0793/7412/3350/files/Flyer_fauteuil_roulant_1.png?v=1738288861"
         : "https://cdn.shopify.com/s/files/1/0793/7412/3350/files/omraplus.png?v=1738366909";
+
+  const getCurrentCompareAtPrice = (
+    quantity: number,
+    compareAtPrice?: string,
+  ) => {
+    if (compareAtPrice) {
+      return (
+        (Number(compareAtPrice) / 100) * quantity +
+        " " +
+        currentProduct.currentSymbol
+      );
+    }
+    return undefined;
+  };
 
   return (
     <label
@@ -171,7 +176,7 @@ const RadioNumber: React.FC<RadioNumberType> = (props) => {
             </span>
             {promo && (
               <p className="rounded-full px-3 py-1 bg-[#b9875e1a] font-bold text-[#b9875e] text-xs">
-                -{returnPromo()}%
+                -{promo}%
               </p>
             )}
           </div>
@@ -196,12 +201,21 @@ const RadioNumber: React.FC<RadioNumberType> = (props) => {
           )}
         </div>
         <div className="flex flex-col">
-          <p className="text-[16px] text-secondary  font-semibold">
-            {totalPriceCustomWheelchair}
-          </p>
+          <p className="text-[16px] text-secondary  font-semibold">{suffix}</p>
           {otherSuffix && (
             <p className="text-xs font-medium text-right text-gray-400 line-through">
               {otherSuffix}
+            </p>
+          )}
+          {getCurrentCompareAtPrice(
+            Number(numberValues),
+            currentProduct.currentCompareAtPrice,
+          ) && (
+            <p className="text-sm font-medium text-right text-red-400 line-through">
+              {getCurrentCompareAtPrice(
+                Number(value),
+                currentProduct.currentCompareAtPrice,
+              )}
             </p>
           )}
         </div>

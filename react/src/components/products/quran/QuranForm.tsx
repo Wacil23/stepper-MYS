@@ -12,12 +12,12 @@ type CurrentProduct = {
 
 type QuranFormProps = {
   beneficiary: BeneficiaryQuranCreationModel;
-  index: number
-}
+  index: number;
+};
 
-const QuranForm: React.FC<QuranFormProps> = ({beneficiary, index}) => {
+const QuranForm: React.FC<QuranFormProps> = ({ beneficiary, index }) => {
   const { formik, currentProduct } = useFormContext();
-  const product = (currentProduct as CurrentProduct)
+  const product = currentProduct as CurrentProduct;
   const { t } = useTranslation();
   const { setFieldValue } = formik;
 
@@ -25,29 +25,33 @@ const QuranForm: React.FC<QuranFormProps> = ({beneficiary, index}) => {
     {
       label: t("quantity.quran.label"),
       value: 1,
-      description: t("quantity.quran.description", {name: beneficiary.name}),
-      promo: "",
+      description: t("quantity.quran.description", { name: beneficiary.name }),
+      promo: "20",
       reduction: "0",
     },
     {
       label: t("quantity.quran.label_2"),
       value: 2,
-      promo: "",
+      promo: "20",
       reduction: "0",
-      description: t("quantity.quran.description_2",  {name: beneficiary.name}),
+      description: t("quantity.quran.description_2", {
+        name: beneficiary.name,
+      }),
     },
     {
       label: t("quantity.quran.label_3"),
       value: 3,
-      promo: "",
+      promo: "20",
       reduction: "0",
-      description: t("quantity.quran.description_3", {name: beneficiary.name}),
+      description: t("quantity.quran.description_3", {
+        name: beneficiary.name,
+      }),
     },
     {
       label: t("quantity.quran.label_custom"),
       value: 4,
       isCustom: true,
-      promo: "",
+      promo: "20",
       reduction: "0",
     },
   ];

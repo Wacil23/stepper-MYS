@@ -63,9 +63,10 @@
       "label_2": "2 Rolstoelen",
       "label_3": "3 Rolstoelen",
       "label_custom": "Aangepaste hoeveelheid",
-      "description": "+1 maaltijd voor {{name}}",
-      "description_2": "+2 maaltijd voor {{name}}",
-      "description_3": "+3 maaltijd voor {{name}}",
+      "description": "in de naam van {{name}}",
+      "description_2": "in de naam van {{name}}",
+      "description_3": "in de naam van {{name}}",
+      "description_custom": "in de naam van {{name}}",
       "errors": {
         "required": "Het aantal rolstoelen is verplicht",
         "minLength": "Moet minstens 1 zijn"
@@ -77,9 +78,10 @@
       "label_2": "2 Korans",
       "label_3": "3 Korans",
       "label_custom": "Aangepaste hoeveelheid",
-      "description": "+1 maaltijd voor {{name}}",
-      "description_2": "+2 maaltijd voor {{name}}",
-      "description_3": "+3 maaltijd voor {{name}}",
+      "description": "in de naam van {{name}}",
+      "description_2": "in de naam van {{name}}",
+      "description_3": "in de naam van {{name}}",
+      "description_custom": "in de naam van {{name}}",
       "errors": {
         "required": "Het aantal Korans is verplicht",
         "minLength": "Moet minstens 1 zijn"
@@ -91,9 +93,10 @@
       "label_2": "2 Omra",
       "label_3": "3 Omra",
       "label_custom": "Aangepaste hoeveelheid",
-      "description": "+1 maaltijd voor {{name}}",
-      "description_2": "+2 maaltijd voor {{name}}",
-      "description_3": "+3 maaltijd voor {{name}}",
+      "description": "in de naam van {{name}}",
+      "description_2": "in de naam van {{name}}",
+      "description_3": "in de naam van {{name}}",
+      "description_custom": "in de naam van {{name}}",
       "errors": {
         "required": "Het aantal Omra is verplicht",
         "minLength": "Moet minstens 1 zijn"

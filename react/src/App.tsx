@@ -50,6 +50,7 @@ export default function App() {
         cadrePrice,
         currentSymbol,
         mymoney,
+        currentCompareAtPrice,
       } = container.dataset;
 
       if (mymoney) {
@@ -67,6 +68,7 @@ export default function App() {
         currentTitle,
         currentPrice,
         currentSymbol,
+        currentCompareAtPrice,
       };
       const cadreProduct = { cadreId, cadreTitle, cadrePrice };
       setCurrentProduct(currentProduct);

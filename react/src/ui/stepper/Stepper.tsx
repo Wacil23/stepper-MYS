@@ -201,31 +201,6 @@ const Stepper = () => {
           };
         });
 
-      const iftarLines = beneficiaries.map((beneficiary) => {
-        const isWheelchair =
-          productType === "wheelchair" && "wheelchairCount" in beneficiary;
-        const isQuran = productType === "quran" && "quranCount" in beneficiary;
-        const isOmra = productType === "omra" && "omraCount" in beneficiary;
-        const isOmraRamadan =
-          productType === "omraRamadan" && "omraCount" in beneficiary;
-        return {
-          merchandiseId: "gid://shopify/ProductVariant/49945517785430",
-          quantity: isWheelchair
-            ? beneficiary.wheelchairCount
-            : isQuran
-              ? beneficiary.quranCount
-              : isOmra || isOmraRamadan
-                ? beneficiary.omraCount
-                : 1,
-          attributes: [
-            {
-              key: t("checkout.attributes.iftar"),
-              value: beneficiary.name,
-            },
-          ],
-        };
-      });
-
       const countryMapBySymbol: Record<string, string> = {
         "€": "FR",
         CHF: "CH",
@@ -242,6 +217,7 @@ const Stepper = () => {
         if (term === "it") return "IT";
         if (term === "de") return "DE";
         if (term === "nl") return "NL";
+
         const symbol = currentProduct?.currentSymbol;
         return getCountryCodeFromSymbol(symbol);
       };
@@ -249,7 +225,7 @@ const Stepper = () => {
       getCountryCode();
 
       const input: ICartInput = {
-        lines: [...wheelchairLines, ...frameQrLines, ...iftarLines],
+        lines: [...wheelchairLines, ...frameQrLines],
         buyerIdentity: {
           countryCode: getCountryCode(),
         },
@@ -402,9 +378,9 @@ const Stepper = () => {
     let reduction = 0;
     let promo = "0";
     if (isWheelchair) {
-      // if (totalQuantity === 2) promo = "5";
-      // else if (totalQuantity === 3) promo = "10";
-      // else if (totalQuantity >= 4) promo = "15";
+      if (totalQuantity === 2) promo = "5";
+      else if (totalQuantity === 3) promo = "10";
+      else if (totalQuantity >= 4) promo = "15";
     } else if (isQuran) {
       // if (totalQuantity === 1) reduction = 10.9;
       // if (totalQuantity === 2) reduction = 20.8;
@@ -465,23 +441,6 @@ const Stepper = () => {
     { number: 3, value: t("steps.stepThree"), component: <FrameForm /> },
   ];
 
-  const totalProduct = formik.values.beneficiaries.reduce((acc, b) => {
-    const isWheelchair =
-      formik.values.productType === "wheelchair" && "wheelchairCount" in b;
-    const isQuran = formik.values.productType === "quran" && "quranCount" in b;
-    const isOmra = formik.values.productType === "omra" && "omraCount" in b;
-    return (
-      acc +
-      (isWheelchair
-        ? b.wheelchairCount
-        : isQuran
-          ? b.quranCount
-          : isOmra
-            ? b.omraCount
-            : 0)
-    );
-  }, 0);
-
   return (
     <>
       <div
@@ -518,21 +477,9 @@ const Stepper = () => {
           );
         })}
       </div>
-      <div className="my-7">
-        <div className="p-4 border-l-red-500 border-r-black border-t-black border-b-green-800 border-2 rounded-xl flex items-center gap-[14px]">
-          <img
-            src="https://cdn.shopify.com/s/files/1/0793/7412/3350/files/iconpalestine.svg?v=1740573459"
-            width={25}
-          />
-          <div className="flex flex-col gap-1 ">
-            <p className="text-base text-pretty text-start font-semibold">
-              {t("steps.infoTitle")}
-            </p>
-            <p className="text-xs text-pretty">{t("steps.infoDescription")}</p>
-          </div>
-        </div>
+      <div className="mt-7">
+        {steps.find((step) => step.number === currentStep)?.component}
       </div>
-      <div>{steps.find((step) => step.number === currentStep)?.component}</div>
       <div className="flex justify-between mt-4">
         {!isFirstStep ? (
           <button
@@ -565,30 +512,11 @@ const Stepper = () => {
             <div className="bg-white p-4 flex items-center justify-between rounded-xl">
               <div className="flex flex-col gap-1">
                 <p className="text-base font-semibold">{t("recap.total")}</p>
-                <p className="text-xs font-light my-1">
-                  {t("recap.total_description", {
-                    number: totalProduct,
-                  })}
-                </p>
-                {/* {ecoPrice > 0 && (
-                  <p className="text-xs font-semibold mt-2">
-                    Éconnomie total :
-                  </p>
-                )} */}
               </div>
               <div className="flex flex-col gap-1">
                 <p className="text-base font-bold">
                   {totalPrice.toFixed(2)} {currentProduct.currentSymbol}
                 </p>
-                <p className="text-base text-right font-medium my-1">
-                  {t("recap.free")}
-                </p>
-                {/* {ecoPrice > 0 && (
-                  <p className="text-xs font-bold mt-2 text-right">
-                    {ecoPrice.toFixed(2)}
-                    {currentProduct.currentSymbol}
-                  </p>
-                )} */}
               </div>
             </div>
           </div>

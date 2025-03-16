@@ -45,7 +45,8 @@ export const calculWheelchairPrice = (
   if (promoPercent && productType === "wheelchair") {
     totalPrice = priceWithoutDiscount * (1 - discountPercent / 100);
   } else if (promoPercent && productType === "quran" && reduction === 0) {
-    totalPrice = priceWithoutDiscount * (1 - discountPercent / 100);
+    totalPrice = priceWithoutDiscount;
+    // totalPrice = priceWithoutDiscount * (1 - discountPercent / 100);
   } else {
     totalPrice = priceWithoutDiscount - reduction;
   }

@@ -10,16 +10,16 @@ const Radio: React.FC<
     description?: string;
     promo?: string;
     reduction?: string;
+    compareAtPrice?: string;
     beneficiaryIndex?: number;
   }
 > = (props) => {
   const {
-    isCustom,
     suffix,
     otherSuffix,
     description,
     promo,
-    beneficiaryIndex,
+    compareAtPrice,
     ...radioProps
   } = props;
   const { inputProps } = useRadio(radioProps);
@@ -95,16 +95,6 @@ const Radio: React.FC<
     },
   ];
 
-  const returnPromo = () => {
-    if (promo === "12") {
-      return "10";
-    } else if (promo === "22") {
-      return "20";
-    }
-    return promo;
-    // For 4 Don't forget its on RadioNumber
-  };
-
   return (
     <label
       className={`items-center gap-3 inline-flex justify-center select-none cursor-pointer align-top bg-transparent transition-colors duration-200 rounded-lg px-2 py-3 hover:bg-[#1b1b1b] ${className}`}
@@ -151,7 +141,7 @@ const Radio: React.FC<
               </p>
               {promo && (
                 <p className="rounded-full px-3 py-1 bg-[#b9875e1a] font-bold text-[#b9875e] text-xs">
-                  -{returnPromo()}%
+                  -{promo}%
                 </p>
               )}
             </div>
@@ -168,6 +158,11 @@ const Radio: React.FC<
             {otherSuffix && (
               <span className="text-xs text-right font-medium text-gray-400 line-through">
                 {otherSuffix}
+              </span>
+            )}
+            {compareAtPrice && (
+              <span className="text-sm text-right font-medium text-red-400 line-through">
+                {compareAtPrice}
               </span>
             )}
           </div>
